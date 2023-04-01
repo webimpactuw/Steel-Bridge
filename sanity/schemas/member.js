@@ -17,9 +17,6 @@ export default defineType({
       name: 'role',
       title: 'Role',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
     }),
     defineField({
       name: 'linkedin',
