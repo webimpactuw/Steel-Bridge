@@ -30,17 +30,18 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     builder = imageUrlBuilder(client);
 
-    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
-    let result = await fetch(request).then(res => res.json());
+    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5Bofficer%3D%3Dtrue%5D'
+    // let resultFetch = await fetch(request).then(res => res.json());
 
-    // let imageRef = result.result[0].image;
 
-    // for (let i = 0; i < result.result.length; i++) {
-    //   let ref = result.result[i].image;
-    //   let img = gen('img');
-    //   img.src = urlFor(ref).width(500).height(500).url();
-    //   id('admin').append(img);
-    // }
+    for (let i = 0; i < resultFetch.result.length; i++) {
+      let ref = resultFetch.result[i].image;
+      console.log(ref);
+      let img = gen('img');
+      img.src = urlFor(ref).width(500).height(500).url();
+      id('admin').append(img);
+
+    }
 
   }
 
