@@ -51,8 +51,10 @@ body {
 }
 
 .center-fit {
-  max-width: 100vw;
-  margin: auto;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
   object-fit: cover;
   margin-top: -7.2%;
   z-index: -1;
@@ -61,37 +63,77 @@ body {
 
 #title {
   position: absolute;
-  top: 42.8%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
+
 }
 
-#title-container {
-  position: relative;
-  text-align: center;
-  color: white;
+
+@media only screen and (orientation: landscape) {
+  #title-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 110vh;
+    aspect-ratio: 16 / 9;
+    background-position: 50% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0;
+    margin-top: -5%;
+    z-index: 0;
+    /* filter: brightness(35%); */
+  }
+
 }
 
-#title-container h1 {
+@media only screen and (orientation: portrait) {
+  #title-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 0;
+    /* aspect-ratio: 16 / 10; */
+    /* background-image: url(img/team-photo.jpg); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0;
+    margin-top: -10%;
+    background-color: red;
+    padding-top: 66.67%;
+    /* filter: brightness(35%); */
+    z-index: 0;
+
+  }
+}
+
+#title h1 {
   text-align: center;
   /* font-size: 30px; */
-  font-size: 5vw;
+  font-size: 6vw;
   margin-top: 0;
   margin-bottom: -1.5%;
   font-family: 'Gothic A1', sans-serif;
   font-style: normal;
   font-weight: 400;
+  z-index: 10;
 }
 
-#title-container h2 {
+#title h2 {
   /* font-size: 30px; */
+
   text-align: center;
-  font-size: 2.1vw;
+  font-size: 2.2vw;
   margin-top: 0;
   margin-bottom: 0;
   font-family: 'Gothic A1', sans-serif;
   font-style: normal;
   font-weight: 200;
+  z-index: 10;
 }
 
 #header ul {
