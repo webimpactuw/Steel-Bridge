@@ -7,12 +7,10 @@ body {
   display: block;
   position: absolute;
   left: 0;
-  top: 0%;
+  top: 0.5%;
   right: 0;
   z-index: 10;
 }
-
-
 
 #header ul {
   list-style-type: none;
@@ -73,7 +71,7 @@ body {
   filter: brightness(35%);
 }
 
-#title {
+#big-title {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -123,7 +121,7 @@ body {
   }
 }
 
-#title h1 {
+#big-title h1 {
   text-align: center;
   display: inline-block;
   /* font-size: 30px; */
@@ -135,7 +133,7 @@ body {
   z-index: 10;
 }
 
-#title h2 {
+#big-title h2 {
   /* font-size: 30px; */
   display: inline-block;
   text-align: center;
@@ -148,7 +146,7 @@ body {
   z-index: 10;
 }
 
-#title {
+#big-title {
   width: 100%;
 }
 
@@ -157,4 +155,45 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 1.9vmin;
+}
+
+h3 {
+  margin-left: 4%;
+  margin-right: 0%;
+  font-size: 3.5vw;
+  font-family: 'Gothic A1', sans-serif;
+  margin-bottom: 2%;
+  /* margin-right: 5%; */
+  /* display: block; */
+}
+
+.title {
+  overflow: hidden;
+}
+
+.title > span {
+ position: relative;
+ display: inline-block;
+}
+
+.title > span:before, .title > span:after {
+  content: '';
+  position: absolute;
+  /* border-bottom: 1px solid; */
+  /* width: 100vw; */
+  margin: 0 2vw;
+  /* margin-right: 100px; */
+  top: 30%; right: 0;
+  border-top: 1.5vw solid #B8A67B;
+  border-right: 2.5vw solid transparent;
+  width: calc(90vw - 100%);
+  float: none;
+}
+
+.title > span:before{
+ right: 100%;
+}
+
+.title > span:after{
+ left: 100%;
 }
