@@ -5,9 +5,6 @@
   flex-wrap: wrap;
 }
 
-
-
-/* */
 @media only screen and (orientation: landscape) {
   .member img {
     object-fit: cover;

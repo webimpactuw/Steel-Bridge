@@ -167,6 +167,10 @@ h3 {
   /* display: block; */
 }
 
+a {
+  text-decoration: none;
+}
+
 .title {
   overflow: hidden;
 }
