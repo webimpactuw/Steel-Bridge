@@ -22,6 +22,12 @@ body {
   justify-content: space-evenly;
   z-index: 5;
   position: relative;
+  font-family: 'Gothic A1', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.9vmin;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 #gap {
@@ -37,18 +43,30 @@ body {
 
 #header li a {
   z-index: 6;
-  display: block;
+  display: inline-block;
+  position: relative;
   color: white;
-  text-align: center;
+  padding-bottom: 0;
   text-decoration: none;
-
-  padding-top: 12px;
-  padding-bottom: 12px;
 }
 
 /* Change the link color to #111 (black) on hover */
-#header li a:hover {
-  background-color: #111;
+#header li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -10%;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+#header li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 #home-logo {
@@ -76,7 +94,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
-
 }
 
 
@@ -148,13 +165,6 @@ body {
 
 #big-title {
   width: 100%;
-}
-
-#header ul {
-  font-family: 'Gothic A1', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.9vmin;
 }
 
 h3 {

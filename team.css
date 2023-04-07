@@ -12,8 +12,8 @@
     height: 100%;
     width: 20vw;
     height: 20vw;
-    min-width: 325px;
-    min-height: 325px;
+    min-width: 300px;
+    min-height: 300px;
   }
 
 }
@@ -50,7 +50,6 @@
 
 .member-photo {
   background-color: #492D82;
-
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -64,7 +63,6 @@
   word-break: break-word;
   text-align: center;
   font-family: 'Gothic A1', sans-serif;
-  /* font-family: 'Gothic A1', sans-serif;  */
   font-family: 'Hind', sans-serif;
   font-family: 'Inter', sans-serif;
   font-family: 'Poppins', sans-serif;
