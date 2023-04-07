@@ -1,18 +1,36 @@
 #admin, #members {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.member img {
-  object-fit: cover;
-  /* aspect-ratio: 1 / 1; */
-  height: 100%;
-  width: 20vw;
-  height: 20vw;
-  min-width: 250px;
-  min-height: 250px;
+
+
+/* */
+@media only screen and (orientation: landscape) {
+  .member img {
+    object-fit: cover;
+    /* aspect-ratio: 1 / 1; */
+    height: 100%;
+    width: 20vw;
+    height: 20vw;
+    min-width: 350px;
+    min-height: 350px;
+  }
+
+}
+
+@media only screen and (orientation: portrait) {
+  .member img {
+    object-fit: cover;
+    /* aspect-ratio: 1 / 1; */
+    height: 100%;
+    width: 20vw;
+    height: 20vw;
+    min-width: 475px;
+    min-height: 475px;
+  }
 }
 
 .member {
