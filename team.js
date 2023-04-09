@@ -30,19 +30,153 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     builder = imageUrlBuilder(client);
 
-    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5Bofficer%3D%3Dtrue%5D'
-    // let resultFetch = await fetch(request).then(res => res.json());
+    generateMemberInfo();
 
+
+    // for (let i = 0; i < resultFetch.result.length; i++) {
+    //   let ref = resultFetch.result[i].image;
+    //   console.log(ref);
+    //   let img = gen('img');
+    //   img.src = urlFor(ref).width(500).height(500).url();
+    //   id('admin').append(img);
+
+    // }
+
+  }
+
+  async function generateMemberInfo() {
+
+
+    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
+    let resultFetch = await fetch(request)
+      .then(statusCheck)
+      .then(res => res.json())
+      .catch(handleError);
+
+    // must have name, officerStatus defined
+    // role, image, linkedinLink can all be undefined.
+
+    // Wanted to be sorted by priority for members (excluding officers since they get their own array)
+    // - image, role
+    // - image, no role
+    // - no image, role
+    // - no image, NoRole
+
+    // linkedin is irrelevant in ordering.
+
+    let imageRole = [];
+    let imageNoRole = [];
+    let noImageRole = [];
+    let noImageNoRole = [];
+
+    let officersCategory = id("admin");
+    let membersCategory = id("members");
+
+    officersCategory.innerHTML = "";
+    membersCategory.innerHTML = "";
 
     for (let i = 0; i < resultFetch.result.length; i++) {
-      let ref = resultFetch.result[i].image;
-      console.log(ref);
-      let img = gen('img');
-      img.src = urlFor(ref).width(500).height(500).url();
-      id('admin').append(img);
+      let member = resultFetch.result[i];
+      let memberDiv = generateMember(member.name, member.role, member.image, member.linkedin);
+
+      // added immediately
+      if (member.officer == true) {
+        officersCategory.append(memberDiv);
+        continue;
+      }
+
+
+      // else sort through them and put them in their category.
+      // you can definitely do this with only one array, but that is hard.
+      if (member.image != null && member.role != null) {
+        imageRole.push(memberDiv);
+      } else if (member.image != null && member.role == null) {
+        imageNoRole.push(memberDiv);
+      } else if (member.image == null && member.role != null) {
+        noImageRole.push(memberDiv);
+      } else {
+        noImageNoRole.push(memberDiv);
+      }
 
     }
 
+    imageRole.forEach(function(member) { membersCategory.append(member)});
+    imageNoRole.forEach(function(member) { membersCategory.append(member)});
+    noImageRole.forEach(function(member) { membersCategory.append(member)});
+    noImageNoRole.forEach(function(member) { membersCategory.append(member)});
+
+  }
+
+  /**
+   *
+   * @param {String} name - member's name
+   * @param {String} role - member's role
+   * @param {Object} image - member's image from sanity
+   * @param {String} linkedinLink - member's role
+   */
+  function generateMember(name, role, image, linkedinLink) {
+    let div = gen("div");
+    div.classList.add("member");
+    div.classList.add("flex");
+
+    let img = gen("img");
+    img.classList.add("member-photo");
+    img.classList.add("flex");
+
+    if (image == null) {
+      img.src = "img/hat.png";
+      img.alt = "University of Washington construction hard-hat";
+    } else {
+      img.src = urlFor(image);
+      img.alt = name;
+    }
+
+    div.append(img);
+
+    let nameHeader = gen("h4");
+    if (linkedinLink == null) {
+      nameHeader.textContent = name;
+    } else {
+      let anchorTag = gen("a");
+
+      anchorTag.textContent = name;
+      anchorTag.href = linkedinLink;
+      nameHeader.append(anchorTag);
+    }
+
+    div.append(nameHeader);
+
+
+    let roleHeader = gen("h5");
+    if (role == null) {
+      roleHeader.textContent = "‎"; // this is an invisible character since the formatting breaks without it
+    } else {
+      roleHeader.textContent = role;
+    }
+
+
+    div.append(roleHeader);
+
+    return div;
+  }
+
+  /**
+   * Return the response's result text if successful, otherwise
+   * returns the rejected Promise result with an error status and corresponding text
+   * @param {object} response - response to check for success/error
+   * @return {object} - valid response if response was successful, otherwise rejected
+   *                    Promise result
+   */
+  async function statusCheck(response) {
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+    return response;
+  }
+
+
+  function handleError() {
+    console.log("error occurred with API call");
   }
 
   /**
