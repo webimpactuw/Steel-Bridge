@@ -20,7 +20,7 @@ body {
   background: linear-gradient(to left, #492D82 60%, rgba(217, 217, 217, 0) 80.08%);
   display: flex;
   justify-content: space-evenly;
-  z-index: 5;
+  z-index: 10;
   position: relative;
   font-family: 'Gothic A1', sans-serif;
   font-style: normal;
@@ -75,7 +75,6 @@ body {
   position: absolute;
   left: 1%;
   cursor: pointer;
-
 }
 
 .center-fit {

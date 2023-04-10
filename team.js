@@ -32,21 +32,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     generateMemberInfo();
 
-
-    // for (let i = 0; i < resultFetch.result.length; i++) {
-    //   let ref = resultFetch.result[i].image;
-    //   console.log(ref);
-    //   let img = gen('img');
-    //   img.src = urlFor(ref).width(500).height(500).url();
-    //   id('admin').append(img);
-
-    // }
-
   }
 
   async function generateMemberInfo() {
 
-
+    // query
     let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
     let resultFetch = await fetch(request)
       .then(statusCheck)
@@ -100,10 +90,10 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     }
 
-    imageRole.forEach(function(member) { membersCategory.append(member)});
-    imageNoRole.forEach(function(member) { membersCategory.append(member)});
-    noImageRole.forEach(function(member) { membersCategory.append(member)});
-    noImageNoRole.forEach(function(member) { membersCategory.append(member)});
+    imageRole.forEach(function(member) {membersCategory.append(member)});
+    imageNoRole.forEach(function(member) {membersCategory.append(member)});
+    noImageRole.forEach(function(member) {membersCategory.append(member)});
+    noImageNoRole.forEach(function(member) {membersCategory.append(member)});
 
   }
 
@@ -138,7 +128,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       nameHeader.textContent = name;
     } else {
       let anchorTag = gen("a");
-
       anchorTag.textContent = name;
       anchorTag.href = linkedinLink;
       nameHeader.append(anchorTag);
@@ -146,14 +135,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     div.append(nameHeader);
 
-
     let roleHeader = gen("h5");
     if (role == null) {
       roleHeader.textContent = "‎"; // this is an invisible character since the formatting breaks without it
     } else {
       roleHeader.textContent = role;
     }
-
 
     div.append(roleHeader);
 
