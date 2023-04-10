@@ -192,11 +192,13 @@ a:visited {
 
 .title {
   overflow: hidden;
+  /* font-size: 100%; */
 }
 
 .title > span {
  position: relative;
  display: inline-block;
+ /* font-size: 1em; */
 }
 
 .title > span:before, .title > span:after {
@@ -209,6 +211,7 @@ a:visited {
   top: 30%; right: 0;
   border-top: 1.5vw solid #B8A67B;
   border-right: 2.5vw solid transparent;
+  height: 100%;
   width: calc(90vw - 100%);
   float: none;
 }
