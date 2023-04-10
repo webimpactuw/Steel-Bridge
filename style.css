@@ -61,7 +61,7 @@ body {
   left: 0;
   background-color: white;
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.225s ease-out;
 }
 
 #header li a:hover::after {
@@ -264,4 +264,10 @@ svg {
   height: 100%;
   max-width: 100px;
   max-height: 100px;
+}
+
+.selected {
+  text-decoration: underline;
+  text-underline-offset: 35%;
+  text-decoration-thickness: 2.5px;
 }
