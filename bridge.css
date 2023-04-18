@@ -1,0 +1,74 @@
+body {
+  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Hind', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-weight: 400; */
+}
+
+#timeline {
+  width: 100%;
+}
+
+#design-process {
+  padding-top: 0.25%;
+  background-color: #DAD2E9;
+  padding-bottom: 0.1%;
+}
+
+#design-process > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* font-size: 39pt; */
+}
+
+#design-process img {
+  width: 30vw;
+}
+
+#design-process p {
+  font-size: 1.25em;
+  width: 30vw;
+}
+
+
+
+
+#competition {
+  padding-top: 0.25%;
+  background-color: #DAD2E9;
+  padding-bottom: 0.1%;
+}
+
+#competition > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* font-size: 39pt; */
+}
+
+#competition > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+}
+
+#competition img {
+  object-fit: cover;
+  width: 40vmax;
+  height: 30vmax;
+  aspect-ratio: 16/9;
+}
+
+#competition p {
+
+  font-size: 1vmax;
+  width: 40vw;
+  /* height: 30vw; */
+}
