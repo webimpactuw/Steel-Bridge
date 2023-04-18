@@ -95,10 +95,10 @@ body {
   text-align: center;
 }
 
-button {
+#p-button a {
   font-size: larger;
   color: black;
-  background-color: #e0c27b;
+  background-color: #dbc38b;
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 2.5%;
@@ -108,10 +108,12 @@ button {
   border-color: #B8A67B;
   text-align: center;
   /* width: 100%; */
+  text-decoration: none;
 }
 
-button:hover {
+#p-button a:hover {
   background-color: #B8A67B;
+  text-decoration: none;
 }
 
 #p-button {
