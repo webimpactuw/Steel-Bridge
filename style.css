@@ -273,3 +273,8 @@ svg {
   text-underline-offset: 35%;
   text-decoration-thickness: 2.5px;
 }
+
+#calendar {
+  height: 700px;
+  width: 100%;
+}
