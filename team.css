@@ -20,6 +20,10 @@ body {
     min-height: 290px;
   }
 
+  select {
+    font-size: 3em;
+  }
+
 }
 
 @media only screen and (orientation: portrait) {
@@ -30,6 +34,10 @@ body {
     height: 20vw;
     min-width: 600px;
     min-height: 600px;
+  }
+
+  select {
+    font-size: 3vw;
   }
 }
 
@@ -88,3 +96,36 @@ body {
   font-weight: 400;
   font-size: 3em;
 }
+
+
+select {
+  background: transparent;
+  background-image: url(img/polygon.svg);
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background-color: transparent;
+  color: white;
+  padding-right: 2.75rem;
+  appearance:none;
+
+
+
+  /* width: 100%; */
+}
+
+optgroup {
+  font-size: 100em;
+}
+
+option {
+  font-size: 10px;
+}
+
+#big-title div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
