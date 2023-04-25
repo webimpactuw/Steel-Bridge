@@ -1,0 +1,5 @@
+#center-text {
+    width: 860px;
+    padding-left: 720px;
+    /* text-align: center; does not work some reason :( */ 
+}
