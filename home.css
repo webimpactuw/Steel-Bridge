@@ -7,7 +7,7 @@ body {
 /*golden companies/values*/
 .bar {
   overflow: hidden;
-  font-size: 150%;
+  font-size: 325%;
 }
 
 
@@ -53,15 +53,30 @@ body {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 4em;
 }
-
 
 #about_text p {
-  font-size: 1.5em;
+  font-size: 2.55em;
 }
 
+#boxes {
+  display: flex;
+  justify-content: space-evenly;
+}
 
+#company_boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 
 
