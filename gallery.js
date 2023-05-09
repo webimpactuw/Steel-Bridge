@@ -7,6 +7,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
   let client;
   let builder;
+  let imageSourceToCaption = new Map();
+
 
   const DATASET = "production";
   const PROJECT_ID = "l6dam5td";
@@ -28,7 +30,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
     });
 
-    let images = qsa("#gallery img");
+    builder = imageUrlBuilder(client);
+
 
     id("full-pic").addEventListener("click", function (event) {
       if (event.target == this) {
@@ -40,11 +43,50 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       id("full-pic").style.display = "none";
     });
 
-    images.forEach((img) => {
-      img.addEventListener('click', function() {
-        displayImage(this);
-      });
-    });
+    generateImages();
+
+  }
+
+  /**
+   * Specify the image to be rendered. Accepts either a Sanity image record, an asset record, or just
+   * the asset id as a string. In order for hotspot/crop processing to be applied, the image record
+   * must be supplied, as well as both width and height.
+   */
+  function urlFor(source) {
+    return builder.image(source)
+  }
+
+  async function generateImages() {
+    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22gallery%22%5D'
+    let resultFetch = await fetch(request)
+      .then(statusCheck)
+      .then(res => res.json())
+      .catch(handleError);
+
+
+    for (let i = 0; i < resultFetch.result.length; i++) {
+      let currentData = resultFetch.result[i];
+      let caption = currentData.caption;
+      let alt = currentData.alt;
+      let image = currentData.image;
+
+      let imageElement = generateImageElement(caption, alt, image);
+      imageElement.addEventListener('click', function() { displayImage(this); });
+      id("gallery").append(imageElement);
+    }
+
+
+
+  }
+
+  function generateImageElement(caption, alt, image) {
+    let imageElement = gen("img");
+    imageElement.src = urlFor(image).url();
+    if (alt) imageElement.alt = alt;
+    console.log("caption is")
+    console.log(caption);
+    if (caption) imageSourceToCaption.set(urlFor(image).url(), caption);
+    return imageElement;
   }
 
 
@@ -55,6 +97,17 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     let arrows = qsa(".image-arrow");
     arrows.forEach(function(arrow) { clearAllEventListeners(arrow); });
     arrows = qsa(".image-arrow");
+
+    let caption = imageSourceToCaption.get(fullImage.src)
+    let captionElement = id("caption");
+
+    if (caption) {
+      captionElement.textContent = caption;
+    } else {
+      captionElement.textContent = "";
+    }
+
+    console.log(caption);
 
     let previousImage = element.previousElementSibling;
     let nextImage = element.nextElementSibling;
