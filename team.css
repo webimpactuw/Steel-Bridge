@@ -48,6 +48,7 @@ body {
   padding-right: 5%;
   padding-bottom: 0.5%;
   position: relative;
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
