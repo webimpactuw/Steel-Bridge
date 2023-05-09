@@ -28,7 +28,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
     });
 
-    let fullPage = id("fullpage");
     let images = qsa("#gallery img");
 
     id("full-pic").addEventListener("click", function (event) {
@@ -66,8 +65,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       arrows[0].style.cursor = "pointer";
     } else {
       arrows[0].classList.add("dim");
-      arrows[0].style.cursor = "";
-
+      arrows[0].style.cursor = "initial";
     }
 
     if (nextImage) {
