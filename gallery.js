@@ -41,8 +41,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       id("full-pic").style.display = "none";
     });
 
-
-
     images.forEach((img) => {
       img.addEventListener('click', function() {
         displayImage(this);
@@ -68,7 +66,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       arrows[0].style.cursor = "pointer";
     } else {
       arrows[0].classList.add("dim");
-      arrows[0].style.cursor = "initial";
+      arrows[0].style.cursor = "";
 
     }
 
