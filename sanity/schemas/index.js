@@ -1,5 +1,6 @@
 import member from './member'
 import sponsor from './sponsor'
-import individual from './individual';
+import individual from './individual'
+import gallery from './gallery';
 
-export const schemaTypes = [member, sponsor, individual];
+export const schemaTypes = [member, sponsor, individual, gallery];
