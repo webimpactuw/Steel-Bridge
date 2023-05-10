@@ -53,11 +53,11 @@ body {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3vw;
 }
 
 #about_text p {
-  font-size: 5vm;
+  font-size: 1.5vw;
 }
 
 #boxes {
