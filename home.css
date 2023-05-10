@@ -7,10 +7,10 @@ body {
 /*golden companies/values*/
 .bar {
   overflow: hidden;
-  font-size: 325%;
+  font-size: 250%;
 }
 
-
+/*adding landscape/rescalability depending on views*/
 .bar span {
   position: relative;
   display: inline-block;
@@ -53,11 +53,11 @@ body {
 }
 
 h2 {
-  font-size: 3.5em;
+  font-size: 3em;
 }
 
 #about_text p {
-  font-size: 1.5em;
+  font-size: 5vm;
 }
 
 #boxes {
@@ -66,18 +66,35 @@ h2 {
   justify-content: space-evenly;
 }
 
+#boxes img {
+  max-width: 20%
+}
+
 #company_boxes {
   display: flex;
   flex-wrap: wrap;
-}
-
-.row {
-  display: flex;
-  flex: 1;
   justify-content: space-evenly;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
 }
 
+#company_boxes img {
+  max-width: 40%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
 
+#individuals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 
+#individuals h3 {
+  font-size: 1.75vw;
+}
+
+#individuals img {
+  width: 1.25vw;
+  height: 1.25vw;
+}
