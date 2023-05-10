@@ -53,15 +53,16 @@ body {
 }
 
 h2 {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 #about_text p {
-  font-size: 2.55em;
+  font-size: 1.5em;
 }
 
 #boxes {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
