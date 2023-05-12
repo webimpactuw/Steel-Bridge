@@ -1,56 +1,81 @@
 #center-text {
-    width: 1000px;
-    padding-left: 720px;
-    /* text-align: center; does not work some reason :( */
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
     font-family: 'Gothic A1', sans-serif;
-}
+  }
 
-input[type=text], input[type=email], select, textarea {
+.container {
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+    max-width: 800px;
     width: 100%;
-    padding: 12px;
-    box-sizing: border-box;
-    margin-top: 6px; 
-    margin-bottom: 16px;
-    resize: vertical;
-    font-family: 'Gothic A1', sans-serif;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: left;
+    width: 155%;
+  }
+  
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 150%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     background-color: #D9D9D9;
   }
   
-  input[type=submit] {
+  .submit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="submit"] {
     background-color: #B7A57A;
     color: black;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-family: 'Gothic A1', sans-serif;
-    font-size: 20px;
-    width: 200px;
+    margin-right: 10px;
+    font-size: 1.2rem;
   }
   
-  input[type=submit]:hover {
+  input[type="submit"]:hover {
     background-color: #938462;
   }
   
-  .container {
-    border-radius: 5px;
-    padding-left: 750px;
-    padding-right: 750px;
-    font-size: 25px;
+  input[type="checkbox"] {
+    margin-right: 5px;
+    margin-top: 7px;
   }
 
-  .submit-container {
-    float: left;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .submit-container label {
-    margin-left: 8px;
+  label[for="copy"] {
+    margin-top: 10px;
   }
 
-  .submit-container input[type=submit] {
-    margin-right: 16px;
-  }
   
