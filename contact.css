@@ -2,7 +2,7 @@
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Century Gothic';
   }
 
 .container {
@@ -16,6 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Century Gothic';
+    font-weight: bold;
   }
   
   form {
