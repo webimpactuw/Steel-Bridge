@@ -1,0 +1,81 @@
+#gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#gallery div {
+  flex-basis: 33.3333%;
+}
+
+#gallery img {
+  display: inline-flex;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  width: 22vw;
+  height: 22w;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#full-pic {
+  position: fixed;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.8); /* black with 50% transparency */
+  height: 100%; /* cover the entire height of the page */
+  width: 100%; /* cover the entire width of the page */
+  top: 0; /* position at the top of the page */
+  left: 0; /* position at the left of the page */
+  z-index: 999; /* ensure that the div is on top of other elements */
+}
+
+#x {
+  color: white;
+  position: absolute;
+  height: auto;
+  margin-top: 2.5%;
+  margin-right: 2.5%;
+  width: 40px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+#full-image {
+  width: 50vw;
+  height: 30vw;
+  object-fit: contain;
+  margin-bottom: 0;
+}
+
+#caption {
+  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Hind', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  color:white;
+  margin-top: 1%;
+  text-align: center;
+}
+
+.image-arrow {
+  width: 2.75vw;
+  height: 2.75vw;
+}
+
+.dim {
+  filter: brightness(0.5);
+}

@@ -102,7 +102,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * @param {String} name - member's name
    * @param {String} role - member's role
    * @param {Object} image - member's image from sanity
-   * @param {String} linkedinLink - member's role
+   * @param {String} linkedinLink - member's linkedin
    */
   function generateMember(name, role, image, linkedinLink) {
     let div = gen("div");
@@ -117,6 +117,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       img.src = "img/hat.png";
       img.alt = "University of Washington construction hard-hat";
     } else {
+      console.log(urlFor(image));
       img.src = urlFor(image);
       img.alt = name;
     }
