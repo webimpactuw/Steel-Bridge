@@ -3,39 +3,30 @@ body {
   font-style: normal;
 }
 
-
 /*golden companies/values*/
 .bar {
-  overflow: hidden;
-  font-size: 250%;
-}
-
-/*adding landscape/rescalability depending on views*/
-.bar span {
-  position: relative;
-  display: inline-block;
   background-color: #B8A67B;
-  padding-left: 1%;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
-  padding-right: 18%;
+  width: 25%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 10%;
+  padding-left: 2.5%;
+  background: linear-gradient(-45deg, transparent 25%, #B8A67B 0);
 }
 
-.bar span::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  border-bottom: 10vw solid white;
-  border-left: 2vw solid #B8A67B;
-  width: 0;
+.bar span {
+  font-size: 2.4vw;
+  /* padding-right: 25%; */
 }
+
 
 #about {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
   margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #about div p {
@@ -43,6 +34,7 @@ body {
 }
 
 #about_picture img {
+  margin-left: 5%;
   width: 40vw;
 }
 
@@ -58,6 +50,7 @@ h2 {
 
 #about_text p {
   font-size: 1.5vw;
+  padding-right: 25%;
 }
 
 #boxes {
@@ -67,7 +60,7 @@ h2 {
 }
 
 #boxes img {
-  max-width: 20%
+  max-width: 20%;
 }
 
 #company_boxes {
@@ -78,7 +71,7 @@ h2 {
 }
 
 #company_boxes img {
-  max-width: 40%;
+  width: 40%;
   margin-top: 2%;
   margin-bottom: 2%;
 }
@@ -87,14 +80,22 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #individuals h3 {
   font-size: 1.75vw;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #individuals img {
   width: 1.25vw;
   height: 1.25vw;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.75vw;
+  margin-top: 2.5%;
 }

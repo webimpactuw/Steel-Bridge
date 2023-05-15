@@ -98,6 +98,14 @@ body {
   #p-button p {
     font-size: x-large;
   }
+
+  #award li {
+    /* width: ; */
+    margin-bottom: 1.5%;
+    list-style: "🏆";
+    font-size: x-large;
+    padding-left: 1em;
+  }
 }
 
 @media only screen and (orientation: portrait) {
@@ -123,6 +131,13 @@ body {
 
   #p-button p {
     font-size: 1.65vw;
+  }
+
+  #award li {
+    margin-bottom: 1.5%;
+    list-style: "🏆";
+    font-size: x-large;
+    padding-left: 1em;
   }
 
 
@@ -163,3 +178,23 @@ body {
   flex-direction: column;
 }
 
+#award {
+  padding-top: 0.1%;
+  background-color: #DAD2E9;
+  padding-bottom: 0.1%;
+}
+
+#award div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+
+#award li {
+  /* width: ; */
+  margin-bottom: 1.5%;
+  list-style: "🏆";
+  font-size: x-large;
+  padding-left: 1em;
+}
