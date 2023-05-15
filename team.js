@@ -117,7 +117,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       img.src = "img/hat.png";
       img.alt = "University of Washington construction hard-hat";
     } else {
-      console.log(urlFor(image));
       img.src = urlFor(image);
       img.alt = name;
     }

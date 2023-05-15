@@ -52,6 +52,11 @@ body {
 .grid-container {
   display: grid;
   /* width: 90%; */
+  place-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  grid-gap: 5%;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
   row-gap: 0px;
@@ -64,33 +69,68 @@ body {
   justify-content: center;
 }
 
+.grid-item div {
+  /* margin-left: 5%; */
+  /* margin-right: 5%; */
+}
+
 @media only screen and (orientation: landscape) {
   .grid-item p {
     resize: none;
     /* margin-bottom: 0; */
-    padding-left: 5%;
-    padding-right: 5%;
+
     /* text-align: center; */
     font-size: x-large;
   }
 
+  #p-button a:hover {
+    background-color: #B8A67B;
+    text-decoration: none;
+  }
+
+  #p-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #p-button p {
+    font-size: x-large;
+  }
 }
 
 @media only screen and (orientation: portrait) {
   .grid-item p {
     resize: none;
     /* margin-bottom: 0; */
-    padding-left: 2%;
-    padding-right: 2%;
+
     /* text-align: center; */
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
+
+  #p-button a:hover {
+    background-color: #B8A67B;
+    text-decoration: none;
+  }
+
+  #p-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #p-button p {
+    font-size: 1.65vw;
+  }
+
 
 }
 
 .grid-item img {
-  width: 50vw;
-  height: 30vw;
+  width: 45vw;
+  height: 25vw;
   object-fit: cover;
   text-align: center;
 }
