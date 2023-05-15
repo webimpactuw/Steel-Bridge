@@ -13,14 +13,6 @@ export default defineType({
         Rule.required(),
       ],
     }),
-    defineField({
-      name: 'company',
-      title: 'Company',
-      type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
-    }),
   ],
   preview: {
     select: {
