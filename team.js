@@ -21,6 +21,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    */
   async function init() {
 
+    console.log("hello");
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
@@ -37,7 +38,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   async function generateMemberInfo() {
 
     // query
-    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
+    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.json())
