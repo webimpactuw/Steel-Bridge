@@ -1,6 +1,6 @@
 
 "use strict";
-import {createClient} from 'https://esm.sh/@sanity/client'
+import createClient from 'https://esm.sh/@sanity/client@4.0.0'
 import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
 (function() {
@@ -21,12 +21,14 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   /**
    * CHANGE: Describe what your init function does here.
    */
+
   async function init() {
+
 
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
-      useCdn: false, // set to `true` to fetch from edge cache
+      useCdn: true, // set to `true` to fetch from edge cache
       apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
     });
 
@@ -57,7 +59,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function generateImages() {
-    let request = 'https://l6dam5td.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22gallery%22%5D'
+    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22gallery%22%5D'
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.json())

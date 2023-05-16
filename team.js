@@ -1,6 +1,6 @@
 
 "use strict";
-import {createClient} from 'https://esm.sh/@sanity/client'
+import createClient from 'https://esm.sh/@sanity/client@4.0.0'
 import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
 (function() {
@@ -21,7 +21,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    */
   async function init() {
 
-    console.log("hello");
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
@@ -118,6 +117,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       img.src = "img/hat.png";
       img.alt = "University of Washington construction hard-hat";
     } else {
+      console.log(urlFor(image));
       img.src = urlFor(image);
       img.alt = name;
     }
