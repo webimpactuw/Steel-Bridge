@@ -24,7 +24,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   window.addEventListener("load", init);
 
   function init(){
-    console.log("hiIIIIIII")
     generateCalender();
     generateEvents();
   }
@@ -65,8 +64,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     let currentDate = new Date();
     for (let i = 0; i < vevent.length && currentAmountDisplayed < DISPLAY_AMOUNT_LIMIT; i++) {
       let event = new ICAL.Event(vevent[i]);
-      console.log(event.summary)
-      // console.log(event.startDate.toString())
       if (currentDate > new Date(event.startDate.toString())) continue;  // get rid of all events before current date
       let card = generateCard(event);
       id("events").append(card);
@@ -134,7 +131,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     let timeTitle = gen('h4');
     if (Number(endDay) === Number(day)) {
-      let timeString = hours + ":" + minutes +  " " + ampm + " - " + endHours + ":"+ endMinutes + " " + ampm;
+      let timeString = hours + ":" + minutes +  " " + ampm + " - " + endHours + ":"+ endMinutes + " " + endAmpm;
       timeTitle.textContent = timeString;
     } else {
       const diffTime = Math.abs(endDate - startDate);
