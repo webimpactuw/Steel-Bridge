@@ -115,15 +115,6 @@ body {
 
 }
 
-@media only screen and (orientation:portrait) {
-  /*
-  element {
-    rule: declaration;
-  }
-  */
-}
-
-
 @media only screen and (orientation: portrait) {
   #title-container {
     position: relative;
