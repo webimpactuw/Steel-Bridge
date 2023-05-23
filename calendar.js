@@ -1,26 +1,22 @@
-// Load the Google API client library
-gapi.load('client', initClient);
 
-function initClient() {
-  // Initialize the API client with your client ID and API key
-  gapi.client.init({
-    'apiKey': 'YOUR_API_KEY',
-    'clientId': 'YOUR_CLIENT_ID',
-    'scope': 'https://www.googleapis.com/auth/calendar'
-  }).then(function() {
-    // Authorize access to the Calendar API
-    gapi.auth2.getAuthInstance().signIn().then(function() {
-      // Get the calendar with the specified ID
-      var calendarId = 'CALENDAR_ID_HERE';
-      var request = gapi.client.calendar.calendars.get({
-        'calendarId': calendarId
-      });
+"use strict";
 
-      request.execute(function(resp) {
-        // Log the calendar's name and description
-        console.log('Calendar Name: ' + resp.summary);
-        console.log('Description: ' + resp.description);
-      });
-    });
-  });
+(function(){
+  window.addEventListener("load", init);
+  async function init(){
+    generateEvents();
+  }
+async function generateEvents() {
+  let request = 'https://www.googleapis.com/calendar/v3/calendars/{calendarid}/events?key={Your Public API Key}'
+  let resultFetch = await fetch(request)
+    .then(statusCheck)
+    .then(res => res.json())
+    .catch(handleError);
+
+  for (let i = 0; i < resultFetch.result.length; i++) {
+    /*
+    Include the calendar json file inputs here
+    */
+  }
 }
+})
