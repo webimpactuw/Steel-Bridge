@@ -5,7 +5,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
 (function() {
 
-  const DISPLAY_AMOUNT_LIMIT = 5;
+  const DISPLAY_AMOUNT_LIMIT = 4;
   const monthsArray = [
     'Jan',
     'Feb',
