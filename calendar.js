@@ -50,7 +50,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
   async function generateEvents() {
     // let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyCsUe62r4Q5ULXStgmQW01hHCnhs954ybc'
-    let request = 'https://outlook.office365.com/owa/calendar/92977f0534914cfe80986b6ae4ccb65a@uw.edu/de3b0f8485f746d5822d888691d4eb651954512426874440223/calendar.ics';
+    let request = 'https://calendar.google.com/calendar/ical/igryanle4321%40gmail.com/public/basic.ics';
+    // let request = 'https://outlook.office365.com/owa/calendar/92977f0534914cfe80986b6ae4ccb65a@uw.edu/de3b0f8485f746d5822d888691d4eb651954512426874440223/calendar.ics';
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.text())
@@ -58,7 +59,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     let calendarData = ICAL.parse(resultFetch);
     let vcalendar = new ICAL.Component(calendarData);
-    let vevent = vcalendar.getAllSubcomponents('vevent');
+    let vevent = vcalendar.getAllSubcomponents('vevent').reverse();
 
     let currentAmountDisplayed = 0;
     let currentDate = new Date();
@@ -94,6 +95,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     if (endMinutes.length === 1) endMinutes = "0" + endMinutes;
 
     let eventName = eventData.summary;
+    console.log(eventName);
 
     // convert from 24 to am/pm
     let ampm = hours >= 12 ? "PM" : "AM";
@@ -138,7 +140,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       let timeString = "Duration: " + (diffDays) + " Days";
       timeTitle.textContent = timeString;
-
     }
 
     card.append(date);
