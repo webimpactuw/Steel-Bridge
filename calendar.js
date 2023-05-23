@@ -30,13 +30,22 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   function generateCalender() {
+    // id("calendar").innerHTML = `
+    //   <iframe id=\"open-web-calendar\"
+    //   style=\"background:url(\"https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif\") center center no-repeat;\"
+    //   src=\"https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fwww.calendarlabs.com%2Fical-calendar%2Fics%2F46%2FGermany_Holidays.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A\"
+    //   sandbox=\"allow-scripts allow-same-origin allow-top-navigation\"
+    //   allowTransparency=\"true\" scrolling=\"no\"
+    //   frameborder=\"0\" height=\"600px\" width=\"100%\"></iframe>
+    // `
+
     id("calendar").innerHTML = `
-      <iframe id=\"open-web-calendar\"
-      style=\"background:url(\"https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif\") center center no-repeat;\"
-      src=\"https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fwww.calendarlabs.com%2Fical-calendar%2Fics%2F46%2FGermany_Holidays.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A\"
-      sandbox=\"allow-scripts allow-same-origin allow-top-navigation\"
-      allowTransparency=\"true\" scrolling=\"no\"
-      frameborder=\"0\" height=\"600px\" width=\"100%\"></iframe>
+    <iframe id="open-web-calendar"
+    style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
+    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Figryanle4321%2540gmail.com%2Fpublic%2Fbasic.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0A%20%20color%3A%20white%3B%0A%7D"
+    sandbox="allow-scripts allow-same-origin allow-top-navigation"
+    allowTransparency="true" scrolling="no"
+    frameborder="0" height="600px" width="100%"></iframe>
     `
   }
 
@@ -120,8 +129,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let timeString = hours + ":" + minutes +  " " + ampm + " - " + endHours + ":"+ endMinutes + " " + ampm;
       timeTitle.textContent = timeString;
     } else {
-      let timeString = (Number(endDay) - Number(day)) + " Days";
+      console.log(eventData)
+      const diffTime = Math.abs(endDate - startDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      let timeString = "Duration: " + (diffDays + 1) + " Days";
       timeTitle.textContent = timeString;
+
     }
 
     card.append(date);
