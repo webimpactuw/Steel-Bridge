@@ -41,7 +41,14 @@
   </div>
 
   <div class="container">
-    <form>
+    <!-- change this email -->
+    <form action="https://formsubmit.co/joeykang96@gmail.com" method="POST">
+
+      <!-- honeypot -->
+      <input type="text" id="honey" name="_honey" style="display: none;">
+
+      <!-- change this -->
+      <input type="hidden" name="_next" value="http://127.0.0.1:5501/contact.html">
   
       <label for="fname">Name</label>
       <input type="text" id="name" name="fullname">

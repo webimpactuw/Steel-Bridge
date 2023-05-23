@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;700&family=Hind:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600&family=Poppins:wght@100;200;400;500;600;700&display=swap" rel="stylesheet">
     <link href="img/favicon.ico" rel="icon"/>
     <link rel="stylesheet" href="style.css">
-    <!-- <script type="module" src="index.js"></script>  put your new js file here-->
+    <link rel="stylesheet" href="calendar.css">
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+    <script type="module" src="calendar.js"></script>
+
 </head>
 <body>
   <div id="header">
@@ -34,9 +37,32 @@
       </div>
     </div>
   </div>
-    <div id = "calendar">
-      <iframe src="https://calendar.google.com/calendar/embed?src=micibr%40cs.washington.edu&ctz=America%2FLos_Angeles" style="border: 0" width="66%" height="100%" frameborder="0" scrolling="no"></iframe>
+
+  <div id="calendar-container">
+    <div id="calendar">
+      <!-- <iframe id="open-web-calendar"
+        style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
+        src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fwww.calendarlabs.com%2Fical-calendar%2Fics%2F46%2FGermany_Holidays.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A"
+        sandbox="allow-scripts allow-same-origin allow-top-navigation"
+        allowTransparency="true" scrolling="no"
+        frameborder="0" height="600px" width="100%"></iframe> -->
     </div>
+    <div id="events">
+      <h2>Upcoming Events</h2>
+      <hr>
+      <!-- <div class="card">
+        <div class="date">
+          <h3>31</h3>
+          <h4>Mar</h4>
+        </div>
+        <div class="event">
+          <h3>CONSTRUCTION</h3>
+          <h4>6:30 pm</h4>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
 
 
 
