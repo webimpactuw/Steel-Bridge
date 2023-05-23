@@ -80,5 +80,18 @@ label[for="copy"] {
   margin-top: 10px;
 }
 
+@media only screen and (orientation: landscape) {
+  #design-process p {
+    font-size: 1.25em;
+    width: 30vw;
+  }
 
+}
 
+@media only screen and (orientation: portrait) {
+  #design-process p {
+    font-size: 2vw;
+    width: 30vw;
+  }
+
+}
