@@ -50,34 +50,42 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function generateEvents() {
-    let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyCsUe62r4Q5ULXStgmQW01hHCnhs954ybc'
+    // let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyCsUe62r4Q5ULXStgmQW01hHCnhs954ybc'
+    let request = 'https://outlook.office365.com/owa/calendar/92977f0534914cfe80986b6ae4ccb65a@uw.edu/de3b0f8485f746d5822d888691d4eb651954512426874440223/calendar.ics';
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then(res => res.text())
       .catch(handleError);
+
+    let calendarData = ICAL.parse(resultFetch);
+    let vcalendar = new ICAL.Component(calendarData);
+    let vevent = vcalendar.getAllSubcomponents('vevent');
 
     let currentAmountDisplayed = 0;
     let currentDate = new Date();
-    for (let i = 0; i < resultFetch.items.length && currentAmountDisplayed < DISPLAY_AMOUNT_LIMIT; i++) {
-      let currentData = resultFetch.items[i];
-      if (currentDate > new Date(currentData.start.dateTime)) continue;  // get rid of all events before current date
-      let card = generateCard(currentData);
+    for (let i = 0; i < vevent.length && currentAmountDisplayed < DISPLAY_AMOUNT_LIMIT; i++) {
+      let event = new ICAL.Event(vevent[i]);
+      console.log(event.summary)
+      // console.log(event.startDate.toString())
+      if (currentDate > new Date(event.startDate.toString())) continue;  // get rid of all events before current date
+      let card = generateCard(event);
       id("events").append(card);
       currentAmountDisplayed++;
     }
+
   }
 
   function generateCard(eventData) {
-    let startString = eventData.start.dateTime;
+    let startString = eventData.startDate.toString();
     let startDate = new Date(startString);
-    let day = String(startDate.getDay());
+    let day = String(startDate.getDate());
     let month = monthsArray[startDate.getMonth()];
     let hours = startDate.getHours();
     let minutes = String(startDate.getMinutes());
 
-    let endString = eventData.end.dateTime;
+    let endString = eventData.endDate.toString();
     let endDate = new Date(endString);
-    let endDay = String(endDate.getDay());
+    let endDay = String(endDate.getDate());
     let endMonth = monthsArray[endDate.getMonth()];
     let endHours = endDate.getHours();
     let endMinutes = String(endDate.getMinutes());
@@ -129,10 +137,9 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let timeString = hours + ":" + minutes +  " " + ampm + " - " + endHours + ":"+ endMinutes + " " + ampm;
       timeTitle.textContent = timeString;
     } else {
-      console.log(eventData)
       const diffTime = Math.abs(endDate - startDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      let timeString = "Duration: " + (diffDays + 1) + " Days";
+      let timeString = "Duration: " + (diffDays) + " Days";
       timeTitle.textContent = timeString;
 
     }
