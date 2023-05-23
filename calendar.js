@@ -41,7 +41,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function generateEvents() {
-    let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyAkjFYbzEnNHkETPe4xQxEoElwOYZ08y6A'
+    let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyCsUe62r4Q5ULXStgmQW01hHCnhs954ybc'
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.json())
