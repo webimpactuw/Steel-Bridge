@@ -13,7 +13,27 @@
    */
   async function init() {
     generateAward();
+    getJoinUsLink();
   }
+
+  async function getJoinUsLink() {
+    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let resultFetch = await fetch(request)
+      .then(statusCheck)
+      .then(res => res.json())
+      .catch(handleError);
+
+    let link = resultFetch.result[0].link;
+    let navLinks = qsa("#header div ul li a");
+
+    // should be the last element, but doing this incase the ordering changes
+    let joinUsElement;
+    for (let i = navLinks.length - 1; i >= 0; i--) {
+      if (navLinks[i].textContent === "Join Us") {
+        joinUsElement = navLinks[i];
+        break;
+      }
+    }
 
 
   async function generateAward() {
