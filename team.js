@@ -11,6 +11,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   const DATASET = "production";
   const PROJECT_ID = "l6dam5td";
 
+  let yearToMembers = new Map();
+  let latestYear = 0;
+  let oldestYear = 99999999;
+
+
   /**
    * Add a function that will be called when the window is loaded.
    */
@@ -67,6 +72,10 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       .then(res => res.json())
       .catch(handleError);
 
+
+    genYearToMembers(resultFetch);
+
+
     // must have name, officerStatus defined
     // role, image, linkedinLink can all be undefined.
 
@@ -122,6 +131,50 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     imageNoRole.forEach(function(member) {membersCategory.append(member)});
     noImageRole.forEach(function(member) {membersCategory.append(member)});
     noImageNoRole.forEach(function(member) {membersCategory.append(member)});
+
+  }
+
+
+  function genYearToMembers(resultFetch) {
+
+    for (let i = 0; i < resultFetch.result.length; i++) {
+      let member = resultFetch.result[i];
+      let name = member.name;
+      let role = member.role;
+      let image = member.image;
+      let linkedin = member.linkedin;
+      let year = member.year;
+
+      let memberData = {
+        "name": name,
+        "role": role,
+        "image": image,
+        "linkedin": linkedin
+      }
+
+      if (year > latestYear) {
+        latestYear = year;
+      }
+
+      if (year < oldestYear) {
+        oldestYear = year;
+      }
+
+      let array;
+      if (yearToMembers.has(year)) {
+        array = yearToMembers.get(year);
+      } else {
+        array = [];
+      }
+
+      array.push(memberData);
+      yearToMembers.set(year, array);
+    }
+
+    console.log(yearToMembers);
+    console.log(latestYear);
+    console.log(oldestYear);
+
 
   }
 
