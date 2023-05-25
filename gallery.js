@@ -106,11 +106,10 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
   function generateImageElement(caption, alt, image) {
     let imageElement = gen("img");
-    imageElement.src = urlFor(image).url();
+    imageElement.src = urlFor(image).quality(55).url();
     if (alt) imageElement.alt = alt;
-    console.log("caption is")
-    console.log(caption);
-    if (caption) imageSourceToCaption.set(urlFor(image).url(), caption);
+    if (caption) imageSourceToCaption.set(urlFor(image).quality(55).url(), caption);
+    imageElement.loading = "lazy"
     return imageElement;
   }
 

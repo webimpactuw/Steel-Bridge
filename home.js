@@ -79,7 +79,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
       if (type == "company") {
         let imageElement = gen("img");
-        imageElement.src = urlFor(currentData.image);
+        imageElement.src = urlFor(currentData.image).quality(50).url();
         imageElement.alt = currentData.name;
         companyElement.append(imageElement);
       } else if (type == "individual") {
