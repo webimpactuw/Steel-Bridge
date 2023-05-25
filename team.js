@@ -140,13 +140,14 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     let img = gen("img");
     img.classList.add("member-photo");
     img.classList.add("flex");
+    img.loading = "lazy";
+
 
     if (image == null) {
       img.src = "img/hat.png";
       img.alt = "University of Washington construction hard-hat";
     } else {
-      console.log(urlFor(image));
-      img.src = urlFor(image);
+      img.src = urlFor(image).width(850).height(850).quality(50).url();
       img.alt = name;
     }
 
