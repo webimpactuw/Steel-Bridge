@@ -91,7 +91,20 @@
     object-fit: cover;
     cursor: pointer;
   }
+
   #gallery  {
     justify-content: center;
+  }
+
+  #full-image {
+    width: 45vmax;
+    height: 40vmax;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+
+  .image-arrow {
+    width: 4vmax;
+    height: 4vmax;
   }
 }
