@@ -41,30 +41,30 @@
 
     <div class="container">
       <!-- change this email -->
-      <form action="https://formsubmit.co/joeykang96@gmail.com" method="POST">
+      <form action="https://formsubmit.co/ryanle4321@gmail.com" method="POST">
 
         <!-- honeypot -->
         <input type="text" id="honey" name="_honey" style="display: none;">
 
         <!-- change this -->
-        <input type="hidden" name="_next" value="http://127.0.0.1:5501/contact.html">
+        <input type="hidden" id="name" name="_next" value="http://127.0.0.1:5501/contact.html">
+
+        <input type="hidden" name="_autoresponse" value="Here is a copy of your email!">
 
         <label for="fname">Name</label>
-        <input type="text" id="name" name="fullname">
+        <input type="text" id="name" name="fullname" required>
 
         <label for="email">Your Email</label>
-        <input type="email" id="email" name="emailaddress">
+        <input type="email" id="email" name="email" required>
 
         <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subjectline">
+        <input type="text" id="subject" name="subject" required>
 
         <label for="message">Message</label>
-        <textarea id="message" name="messagearea" style="max-width: 150%; height:100px"></textarea>
+        <textarea id="message" name="message" style="max-width: 150%; height:100px" required></textarea>
 
         <div class="submit-container">
           <input type="submit" value="Send email">
-          <input type="checkbox" id="copy" name="copy" value="false">
-          <label for="copy">Send me a copy</label>
         </div>
 
       </form>

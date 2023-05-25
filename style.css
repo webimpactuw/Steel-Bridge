@@ -118,6 +118,13 @@ body {
     /* filter: brightness(35%); */
   }
 
+  #background-video {
+    width: 100%;
+    height: 110vh;
+    object-fit: cover;
+    filter: brightness(45%);
+  }
+
 }
 
 @media only screen and (orientation: portrait) {
@@ -138,6 +145,17 @@ body {
     padding-top: 66.67%;
     /* filter: brightness(35%); */
     z-index: 0;
+  }
+
+  #background-video {
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
   }
 }
 
