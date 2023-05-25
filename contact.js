@@ -1,7 +1,9 @@
 
 "use strict";
 
+
 (function() {
+
 
   /**
    * Add a function that will be called when the window is loaded.
@@ -11,8 +13,7 @@
   /**
    * CHANGE: Describe what your init function does here.
    */
-  async function init() {
-    generateAward();
+  function init() {
     getJoinUsLink();
   }
 
@@ -34,27 +35,8 @@
         break;
       }
     }
-  }
 
-
-  async function generateAward() {
-
-    // query
-    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22achievements%22%5D'
-    let resultFetch = await fetch(request)
-      .then(statusCheck)
-      .then(res => res.json())
-      .catch(handleError);
-
-    let list = id("award-list")
-    list.innerHTML = "";
-    for (let i = 0; i < resultFetch.result.length; i++) {
-      let currentData = resultFetch.result[i];
-      let listItem = gen("li");
-      listItem.textContent = currentData.award + ", " + currentData.location + ", " + currentData.year;
-      list.append(listItem);
-    }
-
+    joinUsElement.href = link;
   }
 
 
@@ -76,6 +58,16 @@
   function handleError() {
     console.log("error occurred with API call");
   }
+
+  /**
+   * Specify the image to be rendered. Accepts either a Sanity image record, an asset record, or just
+   * the asset id as a string. In order for hotspot/crop processing to be applied, the image record
+   * must be supplied, as well as both width and height.
+   */
+  function urlFor(source) {
+    return builder.image(source)
+  }
+
 
   /** ------------------------------ Helper Functions  ------------------------------ */
   /**

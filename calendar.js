@@ -24,7 +24,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   window.addEventListener("load", init);
 
   function init(){
-    generateCalender();
     generateEvents();
     getJoinUsLink();
   }
@@ -51,31 +50,62 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     joinUsElement.href = link;
   }
 
-  function generateCalender() {
+  function generateCalender(calendarLink) {
+
     // id("calendar").innerHTML = `
-    //   <iframe id=\"open-web-calendar\"
-    //   style=\"background:url(\"https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif\") center center no-repeat;\"
-    //   src=\"https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fwww.calendarlabs.com%2Fical-calendar%2Fics%2F46%2FGermany_Holidays.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A\"
-    //   sandbox=\"allow-scripts allow-same-origin allow-top-navigation\"
-    //   allowTransparency=\"true\" scrolling=\"no\"
-    //   frameborder=\"0\" height=\"600px\" width=\"100%\"></iframe>
+    // <iframe id="open-web-calendar"
+    // style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
+    // src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Figryanle4321%2540gmail.com%2Fpublic%2Fbasic.ics&amp;css=.dhx_scale_holder_now%2C%20.dhx_now%20.dhx_month_head%2C%20.dhx_now%20.dhx_month_body%20%7B%20background-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0Acolor%3A%20white%3B%0A%7D"
+    // sandbox="allow-scripts allow-same-origin allow-top-navigation"
+    // allowTransparency="true" scrolling="no"
+    // frameborder="0" height="600px" width="100%"></iframe>
     // `
 
-    id("calendar").innerHTML = `
-    <iframe id="open-web-calendar"
-    style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
-    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Figryanle4321%2540gmail.com%2Fpublic%2Fbasic.ics&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0A%20%20color%3A%20white%3B%0A%7D"
-    sandbox="allow-scripts allow-same-origin allow-top-navigation"
-    allowTransparency="true" scrolling="no"
-    frameborder="0" height="600px" width="100%"></iframe>
-    `
+    //https://outlook.office365.com/owa/calendar/d45ad64e0ac441d6a6d09a6ae5e12957@uw.edu/833dfe655e6442f7bb12c1f8da2aa877556960875527581770/calendar.ics
+
+    console.log(`https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Figryanle4321%2540gmail.com%2Fpublic%2Fbasic.ics&amp;css=.dhx_scale_holder_now%2C%20.dhx_now%20.dhx_month_head%2C%20.dhx_now%20.dhx_month_body%20%7B%20background-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0Acolor%3A%20white%3B%0A%7D`);
+    encodeURI()
+
+    console.log(calendarLink);
+    let calendarIFrame = gen('iframe');
+    calendarIFrame.style = "border: 0; background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;";
+    calendarIFrame.src = "https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=" + encodeURIComponent(calendarLink) + "&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A"
+    calendarIFrame.sandbox = "allow-scripts allow-same-origin allow-top-navigation";
+    calendarIFrame.allowTransparency = "true";
+    calendarIFrame.scrolling = "no";
+    calendarIFrame.frameborder = "0";
+    calendarIFrame.height = "600px";
+    calendarIFrame.width = "100%"
+
+    id("calendar").append(calendarIFrame);
+  }
+
+  // from open web calendar,
+  function getCalendarUrl(specification) {
+    var url = DEFAULT_URL + CALENDAR_ENDPOINT + "?";
+    var parameters = [];
+    getOwnProperties(specification).forEach(function(property) {
+        (Array.isArray(specification[property]) ? specification[property].length ? specification[property] : [""] : [specification[property]]
+        ).forEach(function(url){
+            parameters.push(encodeURIComponent(property) + "=" + encodeURIComponent("" + url))
+        });
+    });
+    return url + parameters.join("&");
   }
 
   async function generateEvents() {
-    // let request = 'https://www.googleapis.com/calendar/v3/calendars/igryanle4321@gmail.com/events?key=AIzaSyCsUe62r4Q5ULXStgmQW01hHCnhs954ybc'
-    let request = 'https://calendar.google.com/calendar/ical/igryanle4321%40gmail.com/public/basic.ics';
-    // let request = 'https://outlook.office365.com/owa/calendar/92977f0534914cfe80986b6ae4ccb65a@uw.edu/de3b0f8485f746d5822d888691d4eb651954512426874440223/calendar.ics';
-    let resultFetch = await fetch(request)
+
+    let sanityRequest = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22calendar%22%5D'
+    let sanityResult = await fetch(sanityRequest)
+      .then(statusCheck)
+      .then(res => res.json())
+      .catch(handleError);
+
+    let calendarLink = sanityResult.result[0].link;
+
+    generateCalender(calendarLink);
+
+    let resultFetch = await fetch(calendarLink)
       .then(statusCheck)
       .then(res => res.text())
       .catch(handleError);
@@ -92,6 +122,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let card = generateCard(event);
       id("events").append(card);
       currentAmountDisplayed++;
+    }
+
+    if (currentAmountDisplayed === 0) {
+      let title = gen("h3");
+      title.textContent = "No events yet!";
+      id("events").append(card);
     }
 
   }
@@ -189,8 +225,9 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
 
-  function handleError() {
+  function handleError(error) {
     console.log("error occurred with API call");
+    console.error(error);
   }
 
   /**
