@@ -37,6 +37,15 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'year',
+      title: 'Team Year, latest year will be displayed first, must be one year (2023 -> 2023-2024)',
+      type: 'number',
+      initialValue: 2023,
+      validation: Rule => [
+        Rule.required(),
+      ],
+    }),
   ],
   preview: {
     select: {
