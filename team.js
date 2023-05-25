@@ -95,7 +95,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
       // added immediately
       if (member.officer == true) {
-        officersCategory.append(memberDiv);
+        if (member.role.toLowerCase() === "general manager") {
+          officersCategory.prepend(memberDiv);
+        } else {
+          officersCategory.append(memberDiv);
+        }
         continue;
       }
 

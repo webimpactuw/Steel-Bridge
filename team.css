@@ -30,10 +30,9 @@ body {
   .member img {
     object-fit: cover;
     /* aspect-ratio: 1 / 1; */
-    width: 20vw;
-    height: 20vw;
-    min-width: 600px;
-    min-height: 600px;
+    width: 50vw;
+    height: 50vw;
+
   }
 
   select {

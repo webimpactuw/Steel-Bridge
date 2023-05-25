@@ -9,7 +9,7 @@
     <link href="img/favicon.ico" rel="icon"/>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
-    <!-- <script type="module" src="index.js"></script>  put your new js file here-->
+    <script type="module" src="contact.js"></script>
 </head>
 <body>
   <div id="header">
@@ -49,19 +49,19 @@
 
       <!-- change this -->
       <input type="hidden" name="_next" value="http://127.0.0.1:5501/contact.html">
-  
+
       <label for="fname">Name</label>
       <input type="text" id="name" name="fullname">
-  
+
       <label for="email">Your Email</label>
       <input type="email" id="email" name="emailaddress">
-  
+
       <label for="subject">Subject</label>
       <input type="text" id="subject" name="subjectline">
-  
+
       <label for="message">Message</label>
       <textarea id="message" name="messagearea" style="height:200px"></textarea>
-  
+
       <div class="submit-container">
         <input type="submit" value="Send email">
         <input type="checkbox" id="copy" name="copy" value="false">

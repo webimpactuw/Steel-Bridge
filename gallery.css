@@ -1,9 +1,11 @@
+
 #gallery {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 
@@ -20,7 +22,7 @@
   aspect-ratio: 1/1;
   overflow: hidden;
   width: 22vw;
-  height: 22w;
+  height: 22vw;
   object-fit: cover;
   cursor: pointer;
 }
@@ -78,4 +80,18 @@
 
 .dim {
   filter: brightness(0.5);
+}
+
+
+@media only screen and (orientation: portrait) {
+  #gallery img {
+    display: inline-flex;
+    width: 45vw;
+    height: 45vw;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  #gallery  {
+    justify-content: center;
+  }
 }
