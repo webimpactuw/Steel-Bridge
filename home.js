@@ -21,7 +21,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    */
   async function init() {
 
-    // console.log("HELLOOOOOO");
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,

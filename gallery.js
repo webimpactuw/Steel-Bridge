@@ -88,7 +88,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       .then(res => res.json())
       .catch(handleError);
 
-
     for (let i = 0; i < resultFetch.result.length; i++) {
       let currentData = resultFetch.result[i];
       let caption = currentData.caption;
@@ -131,12 +130,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       captionElement.textContent = "";
     }
 
-    console.log(caption);
 
     let previousImage = element.previousElementSibling;
     let nextImage = element.nextElementSibling;
 
-    if (previousImage) {
+    if (previousImage != null) {
       arrows[0].addEventListener('click', function() {displayImage(previousImage);});
       arrows[0].classList.remove("dim");
       arrows[0].style.cursor = "pointer";
@@ -153,6 +151,18 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       arrows[1].classList.add("dim");
       arrows[1].style.cursor = "initial";
     }
+
+    document.onkeydown = function (e) {
+      let displayNoneCheck = id("full-pic").style.display !== "none";
+      if (e.key === "ArrowLeft" && previousImage && displayNoneCheck) {
+        displayImage(previousImage);
+      } else if (e.key === "ArrowRight" && nextImage && displayNoneCheck) {
+        displayImage(nextImage);
+      } else if (e.key === "Escape") {
+        console.log(e.key)
+        id("full-pic").style.display = "none";
+      }
+    };
 
   }
 
