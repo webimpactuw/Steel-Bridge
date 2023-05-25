@@ -26,8 +26,9 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 50%;
-  margin: 0 auto;
+  width: 50%;
+  max-width: 75%;
+  margin: 1rem 1rem 2.5rem 1rem;
   padding: 1.25rem;
 }
 
@@ -94,16 +95,17 @@ label[for="copy"] {
 
 @media only screen and (orientation: portrait) {
   #center-text h1 {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 
   label {
     font-size: 1.5rem;
   }
 
-  input[type="checkbox"] {
-    width: 10vw;
+  input[type="submit"] {
+    width: 30vw;
     height: 10vw;
+    margin-top: 2.1rem;
     margin-right: 1rem;
   }
 }
