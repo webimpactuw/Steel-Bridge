@@ -4,6 +4,9 @@ body {
   font-family: 'Inter', sans-serif;
   font-family: 'Poppins', sans-serif;
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #home-pressable {
@@ -249,6 +252,8 @@ a:visited {
 
 footer {
   width: 100%;
+  margin-top: auto;
+
   color: white;
   /* text-align: center; */
   background-color: #492D82;

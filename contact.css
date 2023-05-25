@@ -95,10 +95,6 @@ label[for="copy"] {
 
 @media only screen and (orientation: portrait) {
 
-  #contact {
-    min-height: 75vh;
-  }
-
   #center-text h1 {
     font-size: 1.2rem;
   }
