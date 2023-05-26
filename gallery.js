@@ -159,7 +159,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       } else if (e.key === "ArrowRight" && nextImage && displayNoneCheck) {
         displayImage(nextImage);
       } else if (e.key === "Escape") {
-        console.log(e.key)
         id("full-pic").style.display = "none";
       }
     };

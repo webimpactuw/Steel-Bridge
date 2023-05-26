@@ -125,7 +125,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   function generateMembers(year) {
 
     let memberArray = yearToMembers.get(year);
-    console.log(memberArray)
 
     // must have name, officerStatus defined
     // role, image, linkedinLink can all be undefined.

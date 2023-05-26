@@ -119,12 +119,10 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     if (day.length === 1) day = "0" + day;
     if (minutes.length === 1) minutes = "0" + minutes;
-
     if (endDay.length === 1) endDay = "0" + endDay;
     if (endMinutes.length === 1) endMinutes = "0" + endMinutes;
 
     let eventName = eventData.summary;
-    console.log(eventName);
 
     // convert from 24 to am/pm
     let ampm = hours >= 12 ? "PM" : "AM";
