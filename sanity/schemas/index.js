@@ -5,5 +5,6 @@ import gallery from './gallery';
 import achievements from './achievements';
 import calendar from './calendar';
 import joinUs from './join-us';
+import groupPicture from './group-picture';
 
-export const schemaTypes = [member, sponsor, individual, gallery, achievements, calendar, joinUs];
+export const schemaTypes = [member, groupPicture, sponsor, individual, gallery, achievements, calendar, joinUs];

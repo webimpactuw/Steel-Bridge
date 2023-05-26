@@ -12,6 +12,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   const PROJECT_ID = "l6dam5td";
 
   let yearToMembers = new Map();
+  let yearToGroupPic = new Map();
   let latestYear = 0;
   let oldestYear = 99999999;
 
@@ -68,7 +69,58 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       .catch(handleError);
 
     genYearToMembers(resultFetch);
+    genGroupPicYear();
     genYearOptions();
+  }
+
+  async function genGroupPicYear() {
+    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22groupImage%22%5D'
+    let resultFetch = await fetch(request)
+      .then(statusCheck)
+      .then(res => res.json())
+      .catch(handleError);
+
+
+    for (let i = 0; i < resultFetch.result.length; i++) {
+      let currentData = resultFetch.result[i];
+      console.log(currentData)
+      let year = currentData.year;
+      let image = currentData.image;
+
+      let pictureData = {
+        "year": year,
+        "image": image
+      }
+
+      yearToGroupPic.set(year, pictureData);
+    }
+
+    changeGroupPic(latestYear);
+  }
+
+  function changeGroupPic(year) {
+    let validYear = Number(year);
+    while (validYear > 1980) {
+      if (!yearToGroupPic.has(validYear) || !yearToMembers.has(validYear)) {
+        validYear--;
+      } else {
+        console.log("hi");
+        break;
+      }
+    }
+
+    if (validYear <= 1980 || validYear == null) {
+      let image = yearToGroupPic.get(Number(2022)).image;
+      let src = urlFor(image).width(1500).height(1000).quality(55).url();
+      let styleString = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + src + ")";
+      id("title-container").style['background-image'] = styleString;
+      return;
+    }
+    let image = yearToGroupPic.get(Number(validYear)).image;
+    let src = urlFor(image).width(1500).height(1000).quality(55).url();
+    let styleString = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + src + ")";
+    id("title-container").style['background-image'] = styleString;
+
   }
 
   /**
@@ -232,6 +284,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let options = id("options");
       let value = options.value;
       generateMembers(Number(value));
+      changeGroupPic(Number(value));
     })
 
     generateMembers(latestYear);
