@@ -34,6 +34,8 @@
         break;
       }
     }
+
+    joinUsElement.href = link;
   }
 
 
