@@ -55,7 +55,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     id("calendar").innerHTML = `
     <iframe id="open-web-calendar"
     style="background:url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;"
-    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Foutlook.office365.com%2Fowa%2Fcalendar%2Fd45ad64e0ac441d6a6d09a6ae5e12957%40uw.edu%2F833dfe655e6442f7bb12c1f8da2aa877556960875527581770%2Fcalendar.ics&amp;css=.dhx_scale_holder_now%2C%20.dhx_now%20.dhx_month_head%2C%20.dhx_now%20.dhx_month_body%20%7B%20background-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0Acolor%3A%20white%3B%0A%7D"
+    src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fembed%3Fsrc%3Digryanle4321%2540gmail.com%26ctz%3DAmerica%252FLos_Angeles&amp;css=.event%2C%20.dhx_cal_tab.active%2C%20.dhx_cal_tab.active%3Ahover%20%7Bbackground-color%3A%20%234b2e83%3B%7D%20.dhx_month_head%2C%20.dhx_cal_tab%2C%20.dhx_cal_today_button%20%7Bcolor%3A%20%234b2e83%3B%7D%20.dhx_cal_tab%2C%20.dhx_cal_tab.active%20%7Bborder-color%3A%20%234b2e83%3B%7D%0A.event%20%7B%0A%20color%3A%20white%3B%0A%7D"
     sandbox="allow-scripts allow-same-origin allow-top-navigation"
     allowTransparency="true" scrolling="no"
     frameborder="0" height="600px" width="100%"></iframe>
@@ -124,7 +124,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     if (currentAmountDisplayed === 0) {
       let title = gen("h3");
       title.textContent = "No events yet!";
-      id("events").append(card);
+      id("events").append(title);
     }
 
   }
