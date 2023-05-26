@@ -15,6 +15,12 @@
    */
   function init() {
     getJoinUsLink();
+    updateCalendar();
+  }
+
+  function updateCalendar() {
+    let link = document.location.href;
+    id("next").value = link;
   }
 
   async function getJoinUsLink() {
