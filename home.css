@@ -67,13 +67,16 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
 }
 
 #company_boxes img {
-  width: 40%;
+  width: 35%;
   margin-top: 2%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+
   margin-bottom: 2%;
+  object-fit: contain;
 }
 
 #individuals {

@@ -9,7 +9,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   let builder;
 
   const DATASET = "production";
-  const PROJECT_ID = "l6dam5td";
+  const PROJECT_ID = "6t93n5tw";
 
   /**
    * Add a function that will be called when the window is loaded.
@@ -35,7 +35,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function getJoinUsLink() {
-    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.json())
@@ -61,7 +61,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   async function generateSponsors() {
 
     // query
-    let request = 'https://l6dam5td.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22company%22%20%7C%7C%20_type%3D%3D%22individual%22%5D'
+    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22company%22%20%7C%7C%20_type%3D%3D%22individual%22%5D'
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then(res => res.json())
