@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'steel-bridge',
+  title: 'steelbridge',
 
-  projectId: 'l6dam5td',
+  projectId: '6t93n5tw',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
