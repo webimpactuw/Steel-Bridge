@@ -1,6 +1,6 @@
 
 "use strict";
-import createClient from 'https://esm.sh/@sanity/client'
+import { createClient } from 'https://esm.sh/@sanity/client'
 import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
 (function() {
@@ -83,7 +83,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
     for (let i = 0; i < resultFetch.result.length; i++) {
       let currentData = resultFetch.result[i];
-      console.log(currentData)
       let year = currentData.year;
       let image = currentData.image;
 
@@ -104,7 +103,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       if (!yearToGroupPic.has(validYear) || !yearToMembers.has(validYear)) {
         validYear--;
       } else {
-        console.log("hi");
         break;
       }
     }

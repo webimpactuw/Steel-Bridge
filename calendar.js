@@ -1,7 +1,5 @@
 
 "use strict";
-import createClient from 'https://esm.sh/@sanity/client'
-import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
 (function() {
 
