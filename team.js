@@ -198,17 +198,33 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     officersCategory.innerHTML = "";
     membersCategory.innerHTML = "";
 
+    const officerOrder = {
+      "general manager": 0,
+      "assistant general manager": 1,
+      "design manager": 2,
+      "assistant design manager": 3,
+      "cad technician": 4,
+      "construction manager": 5,
+      "assistant construction manager": 6,
+      "financial manager": 7,
+      "outreach manager": 8,
+    };
+    memberArray.sort((a, b) => {
+      if (!a.role || !b.role) {
+        return b.role ? 1 : -1;
+      }
+      const orderA = officerOrder[a.role.toLowerCase()] !== undefined ? officerOrder[a.role.toLowerCase()] : Infinity;
+      const orderB = officerOrder[b.role.toLowerCase()] !== undefined ? officerOrder[b.role.toLowerCase()] : Infinity;
+      return orderA - orderB;
+    })
+
     for (let i = 0; i < memberArray.length; i++) {
       let member = memberArray[i];
       let memberDiv = generateMember(member.name, member.role, member.image, member.linkedin);
 
       // added immediately
       if (member.officer == true) {
-        if (member.role.toLowerCase() === "general manager") {
-          officersCategory.prepend(memberDiv);
-        } else {
-          officersCategory.append(memberDiv);
-        }
+        officersCategory.append(memberDiv);
         continue;
       }
 

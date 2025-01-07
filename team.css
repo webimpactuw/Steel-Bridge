@@ -59,7 +59,7 @@ body {
 } */
 
 .member-photo {
-  background-color: #492D82;
+  /* background-color: #492D82; */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -119,7 +119,8 @@ optgroup {
 }
 
 option {
-  font-size: 10px;
+  font-size:0.6em;
+  color: black;
 }
 
 #big-title div {
