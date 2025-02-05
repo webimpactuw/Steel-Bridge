@@ -2,7 +2,8 @@ body {
   -webkit-text-size-adjust: auto;
 }
 
-#admin, #members {
+#admin,
+#members {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -23,7 +24,6 @@ body {
   select {
     font-size: 3em;
   }
-
 }
 
 @media only screen and (orientation: portrait) {
@@ -76,10 +76,10 @@ body {
 .member h4 {
   word-break: break-word;
   text-align: center;
-  font-family: 'Gothic A1', sans-serif;
-  font-family: 'Hind', sans-serif;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Gothic A1", sans-serif;
+  font-family: "Hind", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 4em;
   margin-bottom: 0;
@@ -87,15 +87,16 @@ body {
 }
 
 .member h5 {
+  width: 290px;
+  text-align: center;
   word-break: break-word;
-  color: #6E6767;
+  color: #6e6767;
   margin-top: 2.5%;
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 3em;
 }
-
 
 select {
   background: transparent;
@@ -107,9 +108,7 @@ select {
   background-color: transparent;
   color: white;
   padding-right: 2.75rem;
-  appearance:none;
-
-
+  appearance: none;
 
   /* width: 100%; */
 }
@@ -119,7 +118,7 @@ optgroup {
 }
 
 option {
-  font-size:0.6em;
+  font-size: 0.6em;
   color: black;
 }
 
@@ -128,4 +127,3 @@ option {
   justify-content: center;
   align-items: center;
 }
-

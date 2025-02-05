@@ -1,8 +1,8 @@
 body {
-  font-family: 'Gothic A1', sans-serif;
-  font-family: 'Hind', sans-serif;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Gothic A1", sans-serif;
+  font-family: "Hind", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -24,12 +24,16 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: linear-gradient(to left, #492D82 60%, rgba(217, 217, 217, 0) 80.08%);
+  background: linear-gradient(
+    to left,
+    #492d82 60%,
+    rgba(217, 217, 217, 0) 80.08%
+  );
   display: flex;
   justify-content: space-evenly;
   z-index: 10;
   position: relative;
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2.1vmin;
@@ -60,7 +64,7 @@ body {
 
 /* Change the link color to #111 (black) on hover */
 #header li a::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -86,10 +90,10 @@ body {
 }
 
 .center-fit {
-  width:auto;
-  height:auto;
-  max-width:100%;
-  max-height:100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
   margin-top: -7.2%;
   z-index: -1;
@@ -103,7 +107,6 @@ body {
   transform: translate(-50%, -55%);
 }
 
-
 @media only screen and (orientation: landscape) {
   #title-container {
     position: relative;
@@ -115,7 +118,7 @@ body {
     background-position: 50% 25%;
     background-size: cover;
     background-repeat: no-repeat;
-    margin:0;
+    margin: 0;
     margin-top: -5%;
     z-index: 0;
     /* filter: brightness(35%); */
@@ -127,7 +130,6 @@ body {
     object-fit: cover;
     filter: brightness(45%);
   }
-
 }
 
 @media only screen and (orientation: portrait) {
@@ -142,7 +144,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin:0;
+    margin: 0;
     margin-top: -10%;
     padding-top: 66.67%;
     /* filter: brightness(35%); */
@@ -167,7 +169,7 @@ body {
   /* font-size: 30px; */
   font-size: 6vw;
   margin-bottom: 0;
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
   z-index: 10;
@@ -180,7 +182,7 @@ body {
   font-size: 2.2vw;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 200;
   z-index: 10;
@@ -195,7 +197,7 @@ h3 {
   margin-right: 0%;
   margin-top: 3%;
   font-size: 3.5vw;
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   margin-bottom: 2%;
   /* margin-right: 5%; */
   /* display: block; */
@@ -221,34 +223,35 @@ a:visited {
 }
 
 .title > span {
- position: relative;
- display: inline-block;
- /* font-size: 1em; */
+  position: relative;
+  display: inline-block;
+  /* font-size: 1em; */
 }
 
-.title > span:before, .title > span:after {
-  content: '';
+.title > span:before,
+.title > span:after {
+  content: "";
   position: absolute;
   /* border-bottom: 1px solid; */
   /* width: 100vw; */
   margin: 0 2vw;
   /* margin-right: 100px; */
-  top: 30%; right: 0;
-  border-top: 1.5vw solid #B8A67B;
+  top: 30%;
+  right: 0;
+  border-top: 1.5vw solid #b8a67b;
   border-right: 2.5vw solid transparent;
   height: 100%;
   width: calc(90vw - 100%);
   float: none;
 }
 
-.title > span:before{
- right: 100%;
+.title > span:before {
+  right: 100%;
 }
 
-.title > span:after{
- left: 100%;
+.title > span:after {
+  left: 100%;
 }
-
 
 footer {
   width: 100%;
@@ -256,7 +259,7 @@ footer {
 
   color: white;
   /* text-align: center; */
-  background-color: #492D82;
+  background-color: #492d82;
   display: flex;
   /* justify-content: space-between; */
   flex-direction: row;
@@ -264,12 +267,15 @@ footer {
   font-size: 2.15vmin;
   padding-top: 0.5%;
   padding-bottom: 0.5%;
+}
 
+footer a {
+  color: white;
 }
 
 footer p {
   /* margin-left: 10%; */
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
   padding-left: 2.5%;
