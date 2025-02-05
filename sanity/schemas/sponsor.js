@@ -9,9 +9,7 @@ export default defineType({
       name: 'image',
       title: 'Company Logo (Should be a rectangle)',
       type: 'image',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
       options: {
         hotspot: true,
       },
@@ -20,9 +18,7 @@ export default defineType({
       name: 'name',
       title: 'Company Name',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {

@@ -12,9 +12,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
     defineField({
       name: 'alt',
@@ -24,13 +22,13 @@ export default defineType({
     defineField({
       name: 'caption',
       title: 'Caption',
-      type: 'string'
-    })
+      type: 'string',
+    }),
   ],
   preview: {
     select: {
       title: 'caption',
-      media: 'image'
+      media: 'image',
     },
   },
 })

@@ -1,24 +1,23 @@
 body {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-style: normal;
 }
 
 /*golden companies/values*/
 .bar {
-  background-color: #B8A67B;
+  background-color: #b8a67b;
   width: 25%;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-right: 10%;
   padding-left: 2.5%;
-  background: linear-gradient(-45deg, transparent 25%, #B8A67B 0);
+  background: linear-gradient(-45deg, transparent 25%, #b8a67b 0);
 }
 
 .bar span {
   font-size: 2.4vw;
   /* padding-right: 25%; */
 }
-
 
 #about {
   display: flex;

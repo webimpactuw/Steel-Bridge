@@ -1,8 +1,6 @@
-
 "use strict";
 
-(function() {
-
+(function () {
   /**
    * Add a function that will be called when the window is loaded.
    */
@@ -17,10 +15,11 @@
   }
 
   async function getJoinUsLink() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     let link = resultFetch.result[0].link;
@@ -38,27 +37,29 @@
     joinUsElement.href = link;
   }
 
-
   async function generateAward() {
-
     // query
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22achievements%22%5D'
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22achievements%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
-    let list = id("award-list")
+    let list = id("award-list");
     list.innerHTML = "";
     for (let i = 0; i < resultFetch.result.length; i++) {
       let currentData = resultFetch.result[i];
       let listItem = gen("li");
-      listItem.textContent = currentData.award + ", " + currentData.location + ", " + currentData.year;
+      listItem.textContent =
+        currentData.award +
+        ", " +
+        currentData.location +
+        ", " +
+        currentData.year;
       list.append(listItem);
     }
-
   }
-
 
   /**
    * Return the response's result text if successful, otherwise
@@ -73,7 +74,6 @@
     }
     return response;
   }
-
 
   function handleError() {
     console.log("error occurred with API call");
@@ -115,5 +115,4 @@
   function gen(tagName) {
     return document.createElement(tagName);
   }
-
 })();

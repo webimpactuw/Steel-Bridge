@@ -57,7 +57,8 @@ body {
   display: block;
 }
 
-#navbar li p, #navbar li a {
+#navbar li p,
+#navbar li a {
   color: white;
   text-decoration: none;
   transition: 0.2s background-color ease-in-out;

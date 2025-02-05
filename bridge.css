@@ -1,8 +1,8 @@
 body {
-  font-family: 'Gothic A1', sans-serif;
-  font-family: 'Hind', sans-serif;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Gothic A1", sans-serif;
+  font-family: "Hind", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   /* font-weight: 400; */
 }
 
@@ -12,7 +12,7 @@ body {
 
 #design-process {
   padding-top: 0.25%;
-  background-color: #DAD2E9;
+  background-color: #dad2e9;
   padding-bottom: 0.1%;
 }
 
@@ -38,7 +38,6 @@ body {
     font-size: 1.25em;
     width: 30vw;
   }
-
 }
 
 @media only screen and (orientation: portrait) {
@@ -46,7 +45,6 @@ body {
     font-size: 2vw;
     width: 30vw;
   }
-
 }
 
 .grid-container {
@@ -83,7 +81,7 @@ body {
   }
 
   #p-button a:hover {
-    background-color: #B8A67B;
+    background-color: #b8a67b;
     text-decoration: none;
   }
 
@@ -118,7 +116,7 @@ body {
   }
 
   #p-button a:hover {
-    background-color: #B8A67B;
+    background-color: #b8a67b;
     text-decoration: none;
   }
 
@@ -134,7 +132,7 @@ body {
     height: 100%;
     /* text-align: center; */
     font-size: 1.25rem;
-    }
+  }
 
   #award li {
     margin-bottom: 1.5%;
@@ -142,8 +140,6 @@ body {
     font-size: x-large;
     padding-left: 1em;
   }
-
-
 }
 
 .grid-item img {
@@ -163,14 +159,14 @@ body {
   padding-bottom: 1.25rem;
   border-style: solid;
   border-width: 5px;
-  border-color: #B8A67B;
+  border-color: #b8a67b;
   text-align: center;
   /* width: 100%; */
   text-decoration: none;
 }
 
 #p-button a:hover {
-  background-color: #B8A67B;
+  background-color: #b8a67b;
   text-decoration: none;
 }
 
@@ -183,7 +179,7 @@ body {
 
 #award {
   padding-top: 0.1%;
-  background-color: #DAD2E9;
+  background-color: #dad2e9;
   padding-bottom: 0.1%;
 }
 
@@ -192,7 +188,6 @@ body {
   flex-direction: column;
   margin-left: 5%;
 }
-
 
 #award li {
   /* width: ; */

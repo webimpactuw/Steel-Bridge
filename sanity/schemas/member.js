@@ -9,9 +9,7 @@ export default defineType({
       name: 'name',
       title: 'Member Name',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
     defineField({
       name: 'role',
@@ -27,7 +25,7 @@ export default defineType({
       name: 'officer',
       title: 'Officer?',
       type: 'boolean',
-      initialValue: false
+      initialValue: false,
     }),
     defineField({
       name: 'image',
@@ -42,9 +40,7 @@ export default defineType({
       title: 'Team Year, latest year will be displayed first, must be one year (2023 -> 2023-2024)',
       type: 'number',
       initialValue: 2023,
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {

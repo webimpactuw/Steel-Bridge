@@ -9,25 +9,19 @@ export default defineType({
       name: 'award',
       title: 'Award (formatting: Award, Location, Year)',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
     defineField({
       name: 'location',
       title: 'Location',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
     defineField({
       name: 'year',
       title: 'Year',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {

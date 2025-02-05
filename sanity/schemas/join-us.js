@@ -9,9 +9,7 @@ export default defineType({
       name: 'link',
       title: 'Form Link (MUST ONLY HAVE ONE ENTRY IN TABLE)',
       type: 'string',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {

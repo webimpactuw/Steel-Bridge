@@ -1,10 +1,8 @@
-
 "use strict";
-import { createClient } from 'https://esm.sh/@sanity/client'
-import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
+import { createClient } from "https://esm.sh/@sanity/client";
+import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
 
-(function() {
-
+(function () {
   let client;
   let builder;
 
@@ -20,12 +18,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * CHANGE: Describe what your init function does here.
    */
   async function init() {
-
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
       useCdn: false, // set to `true` to fetch from edge cache
-      apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
+      apiVersion: "2023-03-01", // use current date (YYYY-MM-DD) to target the latest API version
     });
 
     builder = imageUrlBuilder(client);
@@ -35,10 +32,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function getJoinUsLink() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     let link = resultFetch.result[0].link;
@@ -56,15 +54,13 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     joinUsElement.href = link;
   }
 
-
-
   async function generateSponsors() {
-
     // query
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22company%22%20%7C%7C%20_type%3D%3D%22individual%22%5D'
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22company%22%20%7C%7C%20_type%3D%3D%22individual%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     let companyElement = id("company_boxes");
@@ -87,9 +83,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
         individualElement.append(h3Element);
       }
     }
-
   }
-
 
   /**
    * Return the response's result text if successful, otherwise
@@ -105,7 +99,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     return response;
   }
 
-
   function handleError() {
     console.log("error occurred with API call");
   }
@@ -116,9 +109,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * must be supplied, as well as both width and height.
    */
   function urlFor(source) {
-    return builder.image(source)
+    return builder.image(source);
   }
-
 
   /** ------------------------------ Helper Functions  ------------------------------ */
   /**
@@ -156,5 +148,4 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   function gen(tagName) {
     return document.createElement(tagName);
   }
-
 })();

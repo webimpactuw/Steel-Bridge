@@ -9,9 +9,7 @@ export default defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
       options: {
         hotspot: true,
       },
@@ -21,9 +19,7 @@ export default defineType({
       title: 'Team Year, latest year will be displayed first, must be one year (2023 -> 2023-2024)',
       type: 'number',
       initialValue: 2023,
-      validation: Rule => [
-        Rule.required(),
-      ],
+      validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {

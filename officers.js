@@ -1,10 +1,8 @@
-
 "use strict";
-import { createClient } from 'https://esm.sh/@sanity/client'
-import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
+import { createClient } from "https://esm.sh/@sanity/client";
+import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
 
-(function() {
-
+(function () {
   let client;
   let builder;
 
@@ -25,12 +23,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * CHANGE: Describe what your init function does here.
    */
   async function init() {
-
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
       useCdn: false, // set to `true` to fetch from edge cache
-      apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
+      apiVersion: "2023-03-01", // use current date (YYYY-MM-DD) to target the latest API version
     });
 
     builder = imageUrlBuilder(client);
@@ -39,10 +36,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function getJoinUsLink() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     let link = resultFetch.result[0].link;
@@ -60,12 +58,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     joinUsElement.href = link;
   }
 
-
   async function generateMemberInfo() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D'
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22member%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     genYearToMembers(resultFetch);
@@ -74,12 +72,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function genGroupPicYear() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22groupImage%22%5D'
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22groupImage%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
-
 
     for (let i = 0; i < resultFetch.result.length; i++) {
       let currentData = resultFetch.result[i];
@@ -87,9 +85,9 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let image = currentData.image;
 
       let pictureData = {
-        "year": year,
-        "image": image
-      }
+        year: year,
+        image: image,
+      };
 
       yearToGroupPic.set(year, pictureData);
     }
@@ -110,15 +108,20 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     if (validYear <= 1980 || validYear == null) {
       let image = yearToGroupPic.get(Number(2022)).image;
       let src = urlFor(image).width(1500).height(1000).quality(55).url();
-      let styleString = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + src + ")";
-      id("title-container").style['background-image'] = styleString;
+      let styleString =
+        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+        src +
+        ")";
+      id("title-container").style["background-image"] = styleString;
       return;
     }
     let image = yearToGroupPic.get(Number(validYear)).image;
     let src = urlFor(image).width(1500).height(1000).quality(55).url();
-    let styleString = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + src + ")";
-    id("title-container").style['background-image'] = styleString;
-
+    let styleString =
+      "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+      src +
+      ")";
+    id("title-container").style["background-image"] = styleString;
   }
 
   /**
@@ -173,7 +176,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   function generateMembers(year) {
-
     let memberArray = yearToMembers.get(year);
 
     // must have name, officerStatus defined
@@ -213,14 +215,25 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       if (!a.role || !b.role) {
         return b.role ? 1 : -1;
       }
-      const orderA = officerOrder[a.role.toLowerCase()] !== undefined ? officerOrder[a.role.toLowerCase()] : Infinity;
-      const orderB = officerOrder[b.role.toLowerCase()] !== undefined ? officerOrder[b.role.toLowerCase()] : Infinity;
+      const orderA =
+        officerOrder[a.role.toLowerCase()] !== undefined
+          ? officerOrder[a.role.toLowerCase()]
+          : Infinity;
+      const orderB =
+        officerOrder[b.role.toLowerCase()] !== undefined
+          ? officerOrder[b.role.toLowerCase()]
+          : Infinity;
       return orderA - orderB;
-    })
+    });
 
     for (let i = 0; i < memberArray.length; i++) {
       let member = memberArray[i];
-      let memberDiv = generateMember(member.name, member.role, member.image, member.linkedin);
+      let memberDiv = generateMember(
+        member.name,
+        member.role,
+        member.image,
+        member.linkedin,
+      );
 
       // added immediately
       if (member.officer == true) {
@@ -239,26 +252,37 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       } else {
         noImageNoRole.push(memberDiv);
       }
-      showTitles(memberArray)
+      showTitles(memberArray);
     }
 
-    imageRole.forEach(function(member) {membersCategory.append(member)});
-    imageNoRole.forEach(function(member) {membersCategory.append(member)});
-    noImageRole.forEach(function(member) {membersCategory.append(member)});
-    noImageNoRole.forEach(function(member) {membersCategory.append(member)});
+    imageRole.forEach(function (member) {
+      membersCategory.append(member);
+    });
+    imageNoRole.forEach(function (member) {
+      membersCategory.append(member);
+    });
+    noImageRole.forEach(function (member) {
+      membersCategory.append(member);
+    });
+    noImageNoRole.forEach(function (member) {
+      membersCategory.append(member);
+    });
 
     // Hide officer/member headers if none found
   }
 
   function showTitles(memberArray) {
-    id("admintitle").style.display = 
-    !memberArray.some(e => e.officer === true) ? "none" : "block"
-    if (!memberArray.some(e => e.officer === true)) {
+    id("admintitle").style.display = !memberArray.some(
+      (e) => e.officer === true,
+    )
+      ? "none"
+      : "block";
+    if (!memberArray.some((e) => e.officer === true)) {
       id("admintitle").style.display = "none";
     } else {
       id("admintitle").style.display = "block";
     }
-    if (!memberArray.some(e => e.officer === false)) {
+    if (!memberArray.some((e) => e.officer === false)) {
       id("memberstitle").style.display = "none";
     } else {
       id("memberstitle").style.display = "block";
@@ -266,7 +290,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   function genYearToMembers(resultFetch) {
-
     for (let i = 0; i < resultFetch.result.length; i++) {
       let member = resultFetch.result[i];
       let name = member.name;
@@ -277,12 +300,12 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let officer = member.officer;
 
       let memberData = {
-        "name": name,
-        "role": role,
-        "image": image,
-        "linkedin": linkedin,
-        "officer": officer
-      }
+        name: name,
+        role: role,
+        image: image,
+        linkedin: linkedin,
+        officer: officer,
+      };
 
       if (year > latestYear) latestYear = year;
       if (year < oldestYear) oldestYear = year;
@@ -300,7 +323,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   function genYearOptions() {
-
     let maxYear = -1;
     for (let i = latestYear; i >= oldestYear; i--) {
       if (yearToMembers.has(i)) {
@@ -308,21 +330,21 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
         currentYearOption.textContent = i + " - " + (i + 1);
         id("options").append(currentYearOption);
         currentYearOption.value = i;
-        maxYear = Math.max(i, maxYear)
+        maxYear = Math.max(i, maxYear);
       }
     }
 
-    id("options").addEventListener("change", function(event) {
+    id("options").addEventListener("change", function (event) {
       let options = id("options");
       let value = options.value;
       generateMembers(Number(value));
       changeGroupPic(Number(value));
-      showTitles(yearToMembers.get(Number(value)))
-    })
+      showTitles(yearToMembers.get(Number(value)));
+    });
 
     generateMembers(latestYear);
     if (maxYear > 0) {
-      showTitles(yearToMembers.get(maxYear))
+      showTitles(yearToMembers.get(maxYear));
     }
   }
 
@@ -350,9 +372,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * must be supplied, as well as both width and height.
    */
   function urlFor(source) {
-    return builder.image(source)
+    return builder.image(source);
   }
-
 
   /** ------------------------------ Helper Functions  ------------------------------ */
   /**
@@ -390,5 +411,4 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   function gen(tagName) {
     return document.createElement(tagName);
   }
-
 })();

@@ -1,14 +1,11 @@
-
 "use strict";
-import { createClient } from 'https://esm.sh/@sanity/client'
-import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
+import { createClient } from "https://esm.sh/@sanity/client";
+import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
 
-(function() {
-
+(function () {
   let client;
   let builder;
   let imageSourceToCaption = new Map();
-
 
   const DATASET = "production";
   const PROJECT_ID = "6t93n5tw";
@@ -23,17 +20,14 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    */
 
   async function init() {
-
-
     client = createClient({
       projectId: PROJECT_ID,
       dataset: DATASET,
       useCdn: true, // set to `true` to fetch from edge cache
-      apiVersion: '2023-03-01', // use current date (YYYY-MM-DD) to target the latest API version
+      apiVersion: "2023-03-01", // use current date (YYYY-MM-DD) to target the latest API version
     });
 
     builder = imageUrlBuilder(client);
-
 
     id("full-pic").addEventListener("click", function (event) {
       if (event.target == this) {
@@ -50,10 +44,11 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
   }
 
   async function getJoinUsLink() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D';
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22join%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     let link = resultFetch.result[0].link;
@@ -71,21 +66,21 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     joinUsElement.href = link;
   }
 
-
   /**
    * Specify the image to be rendered. Accepts either a Sanity image record, an asset record, or just
    * the asset id as a string. In order for hotspot/crop processing to be applied, the image record
    * must be supplied, as well as both width and height.
    */
   function urlFor(source) {
-    return builder.image(source)
+    return builder.image(source);
   }
 
   async function generateImages() {
-    let request = 'https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22gallery%22%5D'
+    let request =
+      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22gallery%22%5D";
     let resultFetch = await fetch(request)
       .then(statusCheck)
-      .then(res => res.json())
+      .then((res) => res.json())
       .catch(handleError);
 
     for (let i = 0; i < resultFetch.result.length; i++) {
@@ -95,33 +90,34 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let image = currentData.image;
 
       let imageElement = generateImageElement(caption, alt, image);
-      imageElement.addEventListener('click', function() { displayImage(this); });
+      imageElement.addEventListener("click", function () {
+        displayImage(this);
+      });
       id("gallery").append(imageElement);
     }
-
-
-
   }
 
   function generateImageElement(caption, alt, image) {
     let imageElement = gen("img");
     imageElement.src = urlFor(image).quality(55).url();
     if (alt) imageElement.alt = alt;
-    if (caption) imageSourceToCaption.set(urlFor(image).quality(55).url(), caption);
-    imageElement.loading = "lazy"
+    if (caption)
+      imageSourceToCaption.set(urlFor(image).quality(55).url(), caption);
+    imageElement.loading = "lazy";
     return imageElement;
   }
-
 
   function displayImage(element) {
     id("full-pic").style.display = "flex";
     let fullImage = id("full-image");
     fullImage.src = element.src;
     let arrows = qsa(".image-arrow");
-    arrows.forEach(function(arrow) { clearAllEventListeners(arrow); });
+    arrows.forEach(function (arrow) {
+      clearAllEventListeners(arrow);
+    });
     arrows = qsa(".image-arrow");
 
-    let caption = imageSourceToCaption.get(fullImage.src)
+    let caption = imageSourceToCaption.get(fullImage.src);
     let captionElement = id("caption");
 
     if (caption) {
@@ -130,12 +126,13 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       captionElement.textContent = "";
     }
 
-
     let previousImage = element.previousElementSibling;
     let nextImage = element.nextElementSibling;
 
     if (previousImage != null) {
-      arrows[0].addEventListener('click', function() {displayImage(previousImage);});
+      arrows[0].addEventListener("click", function () {
+        displayImage(previousImage);
+      });
       arrows[0].classList.remove("dim");
       arrows[0].style.cursor = "pointer";
     } else {
@@ -144,7 +141,9 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     }
 
     if (nextImage) {
-      arrows[1].addEventListener('click', function() {displayImage(nextImage);});
+      arrows[1].addEventListener("click", function () {
+        displayImage(nextImage);
+      });
       arrows[1].classList.remove("dim");
       arrows[1].style.cursor = "pointer";
     } else {
@@ -162,7 +161,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
         id("full-pic").style.display = "none";
       }
     };
-
   }
 
   /**
@@ -179,7 +177,6 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     return response;
   }
 
-
   function handleError() {
     console.log("error occurred with API call");
   }
@@ -190,9 +187,8 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
    * must be supplied, as well as both width and height.
    */
   function urlFor(source) {
-    return builder.image(source)
+    return builder.image(source);
   }
-
 
   /** ------------------------------ Helper Functions  ------------------------------ */
   /**
@@ -240,5 +236,4 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     let newElement = oldElement.cloneNode(true);
     oldElement.parentNode.replaceChild(newElement, oldElement);
   }
-
 })();
