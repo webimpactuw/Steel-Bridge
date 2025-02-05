@@ -239,7 +239,7 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       } else {
         noImageNoRole.push(memberDiv);
       }
-
+      showTitles(memberArray)
     }
 
     imageRole.forEach(function(member) {membersCategory.append(member)});
@@ -247,6 +247,22 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
     noImageRole.forEach(function(member) {membersCategory.append(member)});
     noImageNoRole.forEach(function(member) {membersCategory.append(member)});
 
+    // Hide officer/member headers if none found
+  }
+
+  function showTitles(memberArray) {
+    id("admintitle").style.display = 
+    !memberArray.some(e => e.officer === true) ? "none" : "block"
+    if (!memberArray.some(e => e.officer === true)) {
+      id("admintitle").style.display = "none";
+    } else {
+      id("admintitle").style.display = "block";
+    }
+    if (!memberArray.some(e => e.officer === false)) {
+      id("memberstitle").style.display = "none";
+    } else {
+      id("memberstitle").style.display = "block";
+    }
   }
 
   function genYearToMembers(resultFetch) {
@@ -285,12 +301,14 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
 
   function genYearOptions() {
 
+    let maxYear = -1;
     for (let i = latestYear; i >= oldestYear; i--) {
       if (yearToMembers.has(i)) {
         let currentYearOption = gen("option");
         currentYearOption.textContent = i + " - " + (i + 1);
         id("options").append(currentYearOption);
         currentYearOption.value = i;
+        maxYear = Math.max(i, maxYear)
       }
     }
 
@@ -299,9 +317,13 @@ import imageUrlBuilder from 'https://esm.sh/@sanity/image-url'
       let value = options.value;
       generateMembers(Number(value));
       changeGroupPic(Number(value));
+      showTitles(yearToMembers.get(Number(value)))
     })
 
     generateMembers(latestYear);
+    if (maxYear > 0) {
+      showTitles(yearToMembers.get(maxYear))
+    }
   }
 
   /**
