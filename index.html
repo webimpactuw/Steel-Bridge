@@ -33,9 +33,9 @@
   </head>
   <body>
     <div id="navbar">
-      <a id="home-pressable" href="index.html"
-        ><img id="home-logo" src="img/logo-white-border.png"
-      /></a>
+      <a id="home-pressable" style="pointer-events: none">
+        <img id="home-logo" src="img/logo-white-border.png" />
+      </a>
       <ul>
         <li class="expand">
           <p>
@@ -63,46 +63,41 @@
           </div>
         </li>
         <li>
-          <a href="bridge.html">The Bridge</a>
-        </li>
-        <li>
           <a href="contact.html">Contact</a>
         </li>
         <li>
-          <a href="">Join Us</a>
+          <a href="https://steeluw.substack.com/" target="_blank">Newsletter</a>
         </li>
       </ul>
     </div>
-    <div id="header">
-      <div
-        id="title-container"
-        style="
-          background-image: linear-gradient(
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)
-          );
-        "
+    <div
+      id="title-container"
+      style="
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        );
+      "
+    >
+      <video
+        id="background-video"
+        autoplay
+        playsinline
+        loop
+        muted
+        poster="img/poster.jpeg"
+        fetchpriority="high"
       >
-        <video
-          id="background-video"
-          autoplay
-          playsinline
-          loop
-          muted
-          poster="img/poster.jpeg"
-          fetchpriority="high"
+        <source src="img/sb.mp4" type="video/mp4" fetchpriority="high" />
+      </video>
+      <div id="big-title">
+        <h1>UW STEEL BRIDGE TEAM</h1>
+        <br />
+        <h2
+          class="animate__animated animate__fadeInUp animate__duration-1s animate__delay-1s"
         >
-          <source src="img/sb.mp4" type="video/mp4" fetchpriority="high" />
-        </video>
-        <div id="big-title">
-          <h1>UW STEEL BRIDGE TEAM</h1>
-          <br />
-          <h2
-            class="animate__animated animate__fadeInUp animate__duration-1s animate__delay-1s"
-          >
-            The strength of a bridge is in its members
-          </h2>
-        </div>
+          The strength of a bridge is in its members
+        </h2>
       </div>
     </div>
     <div id="about">
@@ -135,7 +130,7 @@
     </div>
     <footer>
       <p>
-        Copyright © 2023 UW Steel Bridge Team | Made with ❤️ by
+        Copyright © 2025 UW Steel Bridge Team | Made with ❤️ by
         <a target="_blank" href="https://webimpactuw.org">Web Impact UW</a>
       </p>
       <div>
