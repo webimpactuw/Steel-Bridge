@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="index.css" />
     <script type="module" src="global.js"></script>
-    <!-- <script type="module" src="index.js"></script> -->
+    <script type="module" src="sponsors.js"></script>
   </head>
   <body>
     <div id="navbar">
@@ -65,30 +65,15 @@
         id="title-container"
         style="
           background-image: linear-gradient(
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)
-          );
+              rgba(0, 0, 0, 0.4),
+              rgba(0, 0, 0, 0.4)
+            ),
+            url(img/bridge-2022.png);
         "
+        fetchpriority="high"
       >
-        <video
-          id="background-video"
-          autoplay
-          playsinline
-          loop
-          muted
-          poster="img/poster.jpeg"
-          fetchpriority="high"
-        >
-          <source src="img/sb.mp4" type="video/mp4" fetchpriority="high" />
-        </video>
         <div id="big-title">
-          <h1>UW STEEL BRIDGE TEAM</h1>
-          <br />
-          <h2
-            class="animate__animated animate__fadeInUp animate__duration-1s animate__delay-1s"
-          >
-            The strength of a bridge is in its members
-          </h2>
+          <h1>Current Sponsors</h1>
         </div>
       </div>
     </div>
