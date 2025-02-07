@@ -11,6 +11,12 @@ export default defineType({
       type: 'string',
       validation: (Rule) => [Rule.required()],
     }),
+    defineField({
+      name: 'index',
+      title: 'Index',
+      type: 'number',
+      validation: (Rule) => [Rule.required()],
+    }),
   ],
   preview: {
     select: {

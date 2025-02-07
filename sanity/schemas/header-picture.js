@@ -1,13 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'company',
-  title: 'Company Sponsors',
+  name: 'headerImage',
+  title: 'Page Header Image',
   type: 'document',
   fields: [
     defineField({
       name: 'image',
-      title: 'Company Logo (Should be a rectangle)',
+      title: 'Image',
       type: 'image',
       validation: (Rule) => [Rule.required()],
       options: {
@@ -15,21 +15,15 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'index',
-      title: 'Index',
-      type: 'number',
-      validation: (Rule) => [Rule.required()],
-    }),
-    defineField({
-      name: 'name',
-      title: 'Company Name',
+      name: 'path',
+      title: 'Path to the page (e.g. "bridge" for .../bridge.html)',
       type: 'string',
       validation: (Rule) => [Rule.required()],
     }),
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'path',
       media: 'image',
     },
   },
