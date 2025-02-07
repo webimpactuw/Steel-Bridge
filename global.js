@@ -29,6 +29,7 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
 
     builder = imageUrlBuilder(client);
     getNewsletterLink();
+    setNavToggle();
   }
 
   /**
@@ -70,6 +71,16 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     }
 
     joinUsElement.href = link;
+  }
+
+  function setNavToggle() {
+    let toggle = document.getElementById("mobile-toggle");
+    let nav = document.getElementById("mobile-nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.style.display = nav.style.display === "none" ? "flex" : "none";
+      });
+    }
   }
 
   async function getHeaderImage() {

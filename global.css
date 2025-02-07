@@ -28,12 +28,18 @@ body {
 }
 
 #navbar ul {
-  display: flex;
+  display: none;
   margin: 0;
   position: relative;
   font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
+}
+
+#navbar > img {
+  width: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 #navbar li {
@@ -116,6 +122,26 @@ body {
 #home-logo {
   width: 8rem;
   cursor: pointer;
+}
+
+#mobile-nav {
+  position: absolute;
+  top: 3.65rem;
+  right: 0;
+  display: flex;
+  width: 14rem;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #492d82;
+}
+
+#mobile-nav * {
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+#mobile-nav p {
+  text-decoration: underline;
 }
 
 #big-title {
@@ -268,21 +294,6 @@ a:hover {
   justify-content: center;
 }
 
-@media only screen and (orientation: landscape) {
-  .grid-item p {
-    resize: none;
-    font-size: 1rem;
-  }
-}
-
-@media only screen and (orientation: portrait) {
-  .grid-item p {
-    width: 100%;
-    height: 100%;
-    font-size: 1.25rem;
-  }
-}
-
 .grid-item img {
   width: 45vw;
   height: 25vw;
@@ -314,4 +325,18 @@ footer div {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  #navbar ul {
+    display: flex;
+  }
+
+  #navbar > img {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: none !important;
+  }
 }
