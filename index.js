@@ -28,7 +28,6 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     });
 
     builder = imageUrlBuilder(client);
-
     generateSponsors();
   }
 

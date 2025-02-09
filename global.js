@@ -30,6 +30,8 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     builder = imageUrlBuilder(client);
     getNewsletterLink();
     setNavToggle();
+    let path = window.location.href.split("/").slice(-1)[0].slice(0, -5)
+    getHeaderImage(path)
   }
 
   /**
@@ -48,6 +50,24 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
 
   function handleError() {
     console.log("error occurred with API call");
+  }
+
+  async function getHeaderImage(path) {
+    if (!path || path === "officers" || path === "index") {
+      return;
+    }
+    let request =
+      `https://6t93n5tw.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22headerImage%22%26%26path%3D%3D%22${path}%22%5D`;
+    let resultFetch = await fetch(request)
+      .then(statusCheck)
+      .then((res) => res.json())
+      .catch(handleError);
+    let imageUrl = builder.image(resultFetch.result[0].image).width(1920).url();
+    let styleString =
+      "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+      imageUrl +
+      ")";
+    id("title-container").style["background-image"] = styleString;
   }
 
   async function getNewsletterLink() {
@@ -82,29 +102,7 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
       });
     }
   }
-
-  async function getHeaderImage() {
-    let request =
-      "https%3A%2F%2F6t93n5tw.apicdn.sanity.io%2Fv2021-10-21%2Fdata%2Fquery%2Fproduction%3Fquery%3D%2A%5B_type%3D%3D%22headerImage%22%5D";
-    let resultFetch = await fetch(request)
-      .then(statusCheck)
-      .then((res) => res.json())
-      .catch(handleError);
-
-    // let link = resultFetch.result[0].link;
-    // let navLinks = qsa("#header div ul li a");
-
-    // // should be the last element, but doing this incase the ordering changes
-    // let joinUsElement;
-    // for (let i = navLinks.length - 1; i >= 0; i--) {
-    //   if (navLinks[i].textContent === "Join Us") {
-    //     joinUsElement = navLinks[i];
-    //     break;
-    //   }
-    // }
-
-    // joinUsElement.href = link;
-  }
+  
 })();
 
 /** ------------------------------ Helper Functions  ------------------------------ */

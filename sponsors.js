@@ -40,24 +40,25 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
       .then(statusCheck)
       .then((res) => res.json())
       .catch(handleError);
-
+    
     let companyElement = id("company_boxes");
     let individualElement = id("individuals");
 
     companyElement.innerHTML = "";
     individualElement.innerHTML = "";
-    for (let i = 0; i < resultFetch.result.length; i++) {
-      let currentData = resultFetch.result[i];
-      let type = currentData._type;
+
+    const sponsors = resultFetch.result.sort((a, b) => a.index - b.index);
+    for (let i = 0; i < sponsors.length; i++) {
+      let type = sponsors[i]._type;
 
       if (type == "company") {
         let imageElement = gen("img");
-        imageElement.src = urlFor(builder, currentData.image).quality(50).url();
-        imageElement.alt = currentData.name;
+        imageElement.src = urlFor(builder, sponsors[i].image).quality(50).url();
+        imageElement.alt = sponsors[i].name;
         companyElement.append(imageElement);
       } else if (type == "individual") {
         let h3Element = gen("h3");
-        h3Element.textContent = currentData.name;
+        h3Element.textContent = sponsors[i].name;
         individualElement.append(h3Element);
       }
     }
