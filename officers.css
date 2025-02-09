@@ -1,85 +1,29 @@
-body {
-  -webkit-text-size-adjust: auto;
-}
-
 #admin,
 #members {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-
-@media only screen and (orientation: landscape) {
-  .member img {
-    object-fit: cover;
-    /* aspect-ratio: 1 / 1; */
-    height: 100%;
-    width: 20vw;
-    height: 20vw;
-    min-width: 290px;
-    min-height: 290px;
-  }
-
-  select {
-    font-size: 3em;
-  }
-}
-
-@media only screen and (orientation: portrait) {
-  .member img {
-    object-fit: cover;
-    /* aspect-ratio: 1 / 1; */
-    width: 50vw;
-    height: 50vw;
-  }
-
-  select {
-    font-size: 3vw;
-  }
+  padding-bottom: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .member {
-  /* min-width: 10%; */
-  padding-top: 1%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 0.5%;
-  position: relative;
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  padding: 1rem;
+  font-size: 50%;
 }
-
-/*
-.member::after {
-  content: "";
-  display: block;
-} */
 
 .member-photo {
-  /* background-color: #492D82; */
-  width: 100%;
-  height: 100%;
+  width: 290px;
+  height: 290px;
+  max-width: 100vw;
   object-fit: cover;
-}
-
-.flex {
-  display: flex;
-}
-
-.member {
-  font-size: 50%;
 }
 
 .member h4 {
   word-break: break-word;
   text-align: center;
-  font-family: "Gothic A1", sans-serif;
-  font-family: "Hind", sans-serif;
-  font-family: "Inter", sans-serif;
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 4em;
   margin-bottom: 0;
@@ -92,10 +36,10 @@ body {
   word-break: break-word;
   color: #6e6767;
   margin-top: 2.5%;
-  font-family: "Gothic A1", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 3em;
+  font-size: 1.5rem;
+  height: 3rem;
 }
 
 select {
@@ -109,8 +53,6 @@ select {
   color: white;
   padding-right: 2.75rem;
   appearance: none;
-
-  /* width: 100%; */
 }
 
 optgroup {

@@ -1,120 +1,36 @@
-body {
-  font-family: "Gothic A1", sans-serif;
-  font-family: "Hind", sans-serif;
-  font-family: "Inter", sans-serif;
-  font-family: "Poppins", sans-serif;
-  /* font-weight: 400; */
-}
-
 #timeline {
   width: 100%;
 }
 
 #design-process {
-  padding-top: 0.25%;
+  padding-top: 0.5rem;
   background-color: #dad2e9;
-  padding-bottom: 0.1%;
+  padding-bottom: 0.5rem;
 }
 
 #design-process > div {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
-  flex-wrap: wrap;
-  /* font-size: 39pt; */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#design-process > div > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #design-process img {
-  width: 30vw;
+  width: 100%;
+  object-fit: contain;
 }
 
 #design-process p {
-  font-size: 1.25em;
-  width: 30vw;
-}
-
-@media only screen and (orientation: landscape) {
-  #design-process p {
-    font-size: 1.25em;
-    width: 30vw;
-  }
-}
-
-@media only screen and (orientation: portrait) {
-  #design-process p {
-    font-size: 2vw;
-    width: 30vw;
-  }
-}
-
-@media only screen and (orientation: landscape) {
-  #p-button a:hover {
-    background-color: #b8a67b;
-    text-decoration: none;
-  }
-
-  #p-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  #p-button p {
-    font-size: 1rem;
-  }
-
-  #award li {
-    /* width: ; */
-    margin-bottom: 1.5%;
-    list-style: "🏆";
-    font-size: 2rem;
-    padding-left: 1rem;
-  }
-}
-
-@media only screen and (orientation: portrait) {
-  #p-button a:hover {
-    background-color: #b8a67b;
-    text-decoration: none;
-  }
-
-  #p-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  #p-button p {
-    width: 100%;
-    height: 100%;
-    /* text-align: center; */
-    font-size: 1.25rem;
-  }
-
-  #award li {
-    margin-bottom: 1.5%;
-    list-style: "🏆";
-    font-size: x-large;
-    padding-left: 1em;
-  }
-}
-
-#p-button a {
-  font-size: larger;
-  color: black;
-  background-color: #dbc38b;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #b8a67b;
-  text-align: center;
-  /* width: 100%; */
-  text-decoration: none;
+  padding: 1rem;
 }
 
 #p-button a:hover {
@@ -129,22 +45,97 @@ body {
   flex-direction: column;
 }
 
+#p-button a {
+  color: black;
+  background-color: #dbc38b;
+  padding: 1rem 0.5rem;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #b8a67b;
+  text-align: center;
+  text-decoration: none;
+}
+
+#p-button a:hover {
+  background-color: #b8a67b;
+  text-decoration: none;
+}
+
+.grid-row:not(.no-flex) p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 #award {
-  padding-top: 0.1%;
+  padding-top: 0.5rem;
   background-color: #dad2e9;
-  padding-bottom: 0.1%;
+  padding-bottom: 0.5rem;
 }
 
 #award div {
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  margin-left: 6rem;
 }
 
 #award li {
-  /* width: ; */
-  margin-bottom: 1.5%;
+  margin-bottom: 2rem;
   list-style: "🏆";
-  font-size: 3rem;
-  padding-left: 1em;
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.grid-row,
+.grid-row img {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  #design-process > div {
+    flex-direction: row;
+  }
+
+  #design-process > div > div {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .grid-row {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .grid-row.even {
+    flex-direction: row-reverse;
+  }
+
+  .grid-row * {
+    width: calc(50% - 2rem);
+  }
+
+  .grid-row img {
+    width: calc(50% - 2rem);
+    height: 25vw;
+    object-fit: cover;
+    text-align: center;
+  }
 }

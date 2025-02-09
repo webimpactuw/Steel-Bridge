@@ -84,9 +84,9 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     let fullImage = id("full-image");
     fullImage.src = element.src;
     let arrows = qsa(".image-arrow");
-    arrows.forEach(function (arrow) {
-      clearAllEventListeners(arrow);
-    });
+    // arrows.forEach(function (arrow) {
+    //   clearAllEventListeners(arrow);
+    // });
     arrows = qsa(".image-arrow");
 
     let caption = imageSourceToCaption.get(fullImage.src);
