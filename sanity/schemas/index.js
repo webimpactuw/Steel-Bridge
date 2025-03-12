@@ -3,7 +3,7 @@ import sponsor from './sponsor'
 import individual from './individual'
 import gallery from './gallery'
 import achievements from './achievements'
-import joinUs from './join-us'
+import joinUs from './link-newsletter'
 import groupImage from './group-picture'
 import headerImage from './header-picture'
 
