@@ -30,8 +30,8 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     builder = imageUrlBuilder(client);
     getNewsletterLink();
     setNavToggle();
-    let path = window.location.href.split("/").slice(-1)[0].slice(0, -5)
-    getHeaderImage(path)
+    let path = window.location.href.split("/").slice(-1)[0].slice(0, -5);
+    getHeaderImage(path);
   }
 
   /**
@@ -56,8 +56,7 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     if (!path || path === "officers" || path === "index") {
       return;
     }
-    let request =
-      `https://6t93n5tw.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22headerImage%22%26%26path%3D%3D%22${path}%22%5D`;
+    let request = `https://6t93n5tw.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22headerImage%22%26%26path%3D%3D%22${path}%22%5D`;
     let resultFetch = await fetch(request)
       .then(statusCheck)
       .then((res) => res.json())
@@ -102,7 +101,6 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
       });
     }
   }
-  
 })();
 
 /** ------------------------------ Helper Functions  ------------------------------ */

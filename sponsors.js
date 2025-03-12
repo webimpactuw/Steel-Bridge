@@ -40,7 +40,7 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
       .then(statusCheck)
       .then((res) => res.json())
       .catch(handleError);
-    
+
     let companyElement = id("company_boxes");
     let individualElement = id("individuals");
 
