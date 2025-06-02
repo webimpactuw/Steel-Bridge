@@ -84,19 +84,19 @@ import imageUrlBuilder from "https://esm.sh/@sanity/image-url";
     });
   }
 
-  async function getStoreLink() {
-    let request =
-      "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22store%22%5D";
-    let resultFetch = await fetch(request)
-      .then(statusCheck)
-      .then((res) => res.json())
-      .catch(handleError);
+  // async function getStoreLink() {
+  //   let request =
+  //     "https://6t93n5tw.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22store%22%5D";
+  //   let resultFetch = await fetch(request)
+  //     .then(statusCheck)
+  //     .then((res) => res.json())
+  //     .catch(handleError);
 
-    let link = resultFetch.result[0].link;
-    qsa(".link-store").forEach((e) => {
-      e.href = link;
-    });
-  }
+  //   let link = resultFetch.result[0].link;
+  //   qsa(".link-store").forEach((e) => {
+  //     e.href = link;
+  //   });
+  // }
 
   function setNavToggle() {
     let toggle = document.getElementById("mobile-toggle");
